@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#05070B">
 <title>The Brothers — TwoBrothers</title>
 <meta name="description" content="Meet Syed Luqman (web developer) and Fawad Khan (UI/UX designer) — different skills, one vision.">
 <meta property="og:type" content="website">
@@ -13,11 +13,9 @@
 <meta property="og:image" content="assets/img/wide-duo.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/design-system.css">
 </head>
 <body>
 
@@ -122,19 +120,19 @@
       return '<div class="bar '+cls+'">'+(ic?'<span class="ic">'+s[2]+'</span>':'')+'<span>'+s[0]+'</span><div class="trk"><div class="fill" style="--w:'+s[1]+'%"></div></div><em>'+s[1]+'%</em></div>';
     }).join('');
   });
-  var tools=[['VS Code','VS','#2f9bff'],['GitHub','GH','#fff'],['Figma','Fg','#ff7262'],['Photoshop','Ps','#31a8ff'],['Illustrator','Ai','#ff9a00'],['Tailwind CSS','~','#38bdf8'],['React','⚛','#61dafb'],['Next.js','N','#fff'],['Node.js','⬢','#6cc24a'],['MongoDB','◖','#4faa41'],['Express.js','ex','#fff'],['Supabase','⚡','#3ecf8e']];
+  var tools=[['VS Code','VS','#2f9bff'],['GitHub','GH','#F2F5F9'],['Figma','Fg','#ff7262'],['Photoshop','Ps','#31a8ff'],['Illustrator','Ai','#ff9a00'],['Tailwind CSS','~','#38bdf8'],['React','⚛','#61dafb'],['Next.js','N','#F2F5F9'],['Node.js','⬢','#6cc24a'],['MongoDB','◖','#4faa41'],['Express.js','ex','#F2F5F9'],['Supabase','⚡','#3ecf8e']];
   (document.getElementById('toolgrid')||window.__stub()).innerHTML=tools.map(function(t){return '<div class="tl"><b style="color:'+t[2]+'">'+t[1]+'</b>'+t[0]+'</div>'}).join('');
 
   var P=[
-    ['Shehzad Auto Tuning Workshop','Web Development','Modern website for auto tuning & car repair workshop with service details, gallery, and contact.',['HTML','Tailwind','JS'],['#0a2a55','#030a18','#1b8cff'],'PREMIUM CAR WASH & DETAILING'],
-    ['Sell Wave (Women\'s Fashion & Beauty)','E-Commerce','WhatsApp Business + Google Form based reselling store for fashion and beauty products.',['HTML','CSS','JS','Google Sheets'],['#5a1a5c','#14041a','#d946ef'],'BEAUTY FASHION LIFESTYLE'],
-    ['Red Apple Digital Agency','Web Development','Landing page for digital agency with services, portfolio and modern UI design.',['React','Tailwind','Framer'],['#5a0d0d','#120304','#ff3b2e'],'RED APPLE DIGITAL AGENCY'],
-    ['Fawad\'s AI (App UI/UX)','UI/UX Design','Advanced AI assistant app design with voice activation and modern interface.',['Figma','UI/UX','3D Design'],['#1a2a55','#04060f','#6d8cff'],'FAWAD\'S AI'],
-    ['Real Estate (Property Website)','Web Development','Modern real estate website with property listings, filters and contact integration.',['HTML','Tailwind','JS'],['#1d3a55','#05090f','#7cc4ff'],'FIND YOUR DREAM HOME'],
-    ['E-Learning Platform','Full Stack','Online learning platform with course management and student dashboard.',['React','Node.js','MongoDB'],['#0f3a52','#040a12','#2fd0ff'],'DASHBOARD'],
-    ['Restaurant Website','Web Development','Modern restaurant website with menu, online booking and gallery.',['HTML','Tailwind','JS'],['#5a2a0a','#120804','#ff8a2e'],'GOOD FOOD BETTER MOOD'],
-    ['Brand Identity Design','Branding','Logo, business card and complete brand identity for TwoBrothers.',['Illustrator','Photoshop'],['#222a38','#05070b','#e8eef8'],'TWO BROTHERS CREATIVE STUDIO'],
-    ['Travel Booking App (UI/UX)','UI/UX Design','Clean and modern travel booking app design with smooth user flow.',['Figma','UI/UX','Mobile'],['#0a4a5a','#04101a','#2fe0c8'],'EXPLORE THE WORLD']
+    ['Shehzad Auto Tuning Workshop','Web Development','Modern website for auto tuning & car repair workshop with service details, gallery, and contact.',['HTML','Tailwind','JS'],['#16283A','#080D14','#8CAFD0'],'PREMIUM CAR WASH & DETAILING'],
+    ['Sell Wave (Women\'s Fashion & Beauty)','E-Commerce','WhatsApp Business + Google Form based reselling store for fashion and beauty products.',['HTML','CSS','JS','Google Sheets'],['#221E33','#0C0A14','#A8A2C8'],'BEAUTY FASHION LIFESTYLE'],
+    ['Red Apple Digital Agency','Web Development','Landing page for digital agency with services, portfolio and modern UI design.',['React','Tailwind','Framer'],['#2A1A1D','#100A0C','#C2A3AB'],'RED APPLE DIGITAL AGENCY'],
+    ['Fawad\'s AI (App UI/UX)','UI/UX Design','Advanced AI assistant app design with voice activation and modern interface.',['Figma','UI/UX','3D Design'],['#17243C','#080C12','#93A9D6'],'FAWAD\'S AI'],
+    ['Real Estate (Property Website)','Web Development','Modern real estate website with property listings, filters and contact integration.',['HTML','Tailwind','JS'],['#182B3C','#070C11','#8FBAD9'],'FIND YOUR DREAM HOME'],
+    ['E-Learning Platform','Full Stack','Online learning platform with course management and student dashboard.',['React','Node.js','MongoDB'],['#142B38','#060B0E','#7FCBD9'],'DASHBOARD'],
+    ['Restaurant Website','Web Development','Modern restaurant website with menu, online booking and gallery.',['HTML','Tailwind','JS'],['#2A2318','#100D09','#C9B596'],'GOOD FOOD BETTER MOOD'],
+    ['Brand Identity Design','Branding','Logo, business card and complete brand identity for TwoBrothers.',['Illustrator','Photoshop'],['#1B2230','#05070b','#F2F5F9'],'TWO BROTHERS CREATIVE STUDIO'],
+    ['Travel Booking App (UI/UX)','UI/UX Design','Clean and modern travel booking app design with smooth user flow.',['Figma','UI/UX','Mobile'],['#12303A','#060F14','#7ED0C8'],'EXPLORE THE WORLD']
   ];
   var cats=['All Projects','Web Development','UI/UX Design','Branding','E-Commerce','Full Stack','Other'];
   var cur='All Projects';
@@ -169,7 +167,7 @@
     var n=document.getElementById('fn').value.trim(),m=document.getElementById('fe').value.trim(),s=document.getElementById('fs').value,t=document.getElementById('fm').value.trim();
     ok.hidden=false;
     if(!n||!/^\S+@\S+\.\S+$/.test(m)||!s||!t){
-      ok.style.cssText='border-color:#7a2a1f;background:rgba(255,90,60,.08);color:#ffb3a3';
+      ok.style.cssText='border-color:#5A4046;background:rgba(200,140,150,.08);color:#D6B2B6';
       ok.textContent='Please fill in your name, a valid email, a subject and your message.';return;
     }
     ok.style.cssText='';
