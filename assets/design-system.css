@@ -624,3 +624,170 @@ input,select,textarea{background:rgba(4,8,13,.46)!important;-webkit-backdrop-fil
 @media(prefers-reduced-transparency:reduce){
   .pcard,.sk-card,.tools,.feat,.glass,.poster,.proj,.duo-ct,.quote .in,.now,.stats div,.mini,.into div,.have{background:rgba(11,16,24,.94)!important;backdrop-filter:none}
 }
+
+/* ================================================================
+   19. GLASS v5 — real see-through glass
+   The panels now sit on a lit, fixed ambient field instead of flat
+   black, so the blur actually refracts something. Fills drop to a
+   thin tint, rims get a fine specular edge. No image files touched.
+   ================================================================ */
+:root{
+  --glass-tint:rgba(9,14,21,.40);
+  --glass-tint-2:rgba(16,24,34,.30);
+  --glass-edge:rgba(206,226,244,.20);
+  --glass-edge-hi:rgba(255,255,255,.16);
+}
+
+/* ---- lit backdrop: what the glass has to refract ---- */
+body{
+  background-color:#05070B;
+  background-image:
+    radial-gradient(820px 560px at 16% 8%,  rgba(140,175,208,.17), transparent 70%),
+    radial-gradient(700px 520px at 86% 22%, rgba(99,214,208,.11),  transparent 72%),
+    radial-gradient(980px 720px at 46% 96%, rgba(124,156,196,.15), transparent 74%),
+    radial-gradient(1200px 900px at 78% 62%, rgba(88,116,152,.10), transparent 76%);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}
+/* let the dust field read through the glass */
+#gl{opacity:.46;filter:saturate(.28) brightness(.95) contrast(1.02)}
+.vig{background:radial-gradient(130% 100% at 50% 42%,transparent 62%,rgba(3,5,8,.62))}
+
+/* ---- panels ---- */
+.pcard,.sk-card,.tools,.feat,.glass,.poster,.proj,.duo-ct,
+.quote .in,.now,.stats div,.mini,.into div,.have,.filters,.world,
+.cta-band .in,.values>div,.tl{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.11) 0%,rgba(255,255,255,.025) 38%,rgba(255,255,255,.015) 62%,rgba(255,255,255,.06) 100%),
+    linear-gradient(160deg,var(--glass-tint-2),var(--glass-tint))!important;
+  border:1px solid var(--glass-edge)!important;
+  box-shadow:
+    inset 0 1px 0 var(--glass-edge-hi),
+    inset 0 -1px 0 rgba(255,255,255,.05),
+    inset 1px 0 0 rgba(255,255,255,.045),
+    0 34px 90px -56px rgba(0,0,0,.95)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(155%) brightness(1.04);
+  backdrop-filter:blur(26px) saturate(155%) brightness(1.04);
+}
+.pcard:hover,.sk-card:hover,.poster:hover,.proj:hover,.glass:hover,.tools:hover,.feat:hover,.tl:hover{
+  border-color:rgba(224,238,250,.32)!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.04) 40%,rgba(255,255,255,.02) 64%,rgba(255,255,255,.09) 100%),
+    linear-gradient(160deg,rgba(20,30,42,.34),rgba(9,14,21,.24))!important;
+  -webkit-backdrop-filter:blur(30px) saturate(165%) brightness(1.07);
+  backdrop-filter:blur(30px) saturate(165%) brightness(1.07);
+}
+/* inner tiles stay a touch lighter than their glass parent */
+.mini,.into div,.now,.sk-card .box,.tools .tl,.stats div{
+  background:linear-gradient(140deg,rgba(255,255,255,.085),rgba(255,255,255,.02))!important;
+  border-color:rgba(206,226,244,.16)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  backdrop-filter:blur(14px) saturate(140%);
+}
+
+/* ---- chrome: nav, buttons, fields ---- */
+nav{
+  background:linear-gradient(180deg,rgba(7,11,17,.62),rgba(6,10,15,.40))!important;
+  border-color:rgba(206,226,244,.14)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(150%);
+  backdrop-filter:blur(30px) saturate(150%);
+  box-shadow:inset 0 -1px 0 rgba(255,255,255,.06);
+}
+.btn,.nav-cta,.burger,.chip,.view{
+  background:linear-gradient(150deg,rgba(255,255,255,.12),rgba(255,255,255,.03))!important;
+  border-color:rgba(206,226,244,.22)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  backdrop-filter:blur(20px) saturate(150%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14);
+}
+.btn:hover,.chip:hover,.nav-cta:hover{border-color:rgba(224,238,250,.38)!important;background:linear-gradient(150deg,rgba(255,255,255,.18),rgba(255,255,255,.05))!important}
+/* the one accent-filled action stays solid so it still leads the eye */
+.btn.rise,.btn.solid,.btn.send,.cta-band .btn,.have .btn,.f-in .btn,.chip.on,.view button.on{
+  background:linear-gradient(180deg,#A3C2DC,#8CAFD0)!important;
+  border-color:rgba(255,255,255,.30)!important;
+  color:var(--obsidian)!important;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  box-shadow:0 14px 34px -20px rgba(140,175,208,.9),inset 0 1px 0 rgba(255,255,255,.5)!important;
+  text-shadow:none;
+}
+.btn.rise svg,.btn.solid svg,.btn.send svg,.cta-band .btn svg,.have .btn svg,.f-in .btn svg{stroke:var(--obsidian);opacity:1}
+input,select,textarea,#form input,#form select,#form textarea{
+  background:linear-gradient(150deg,rgba(255,255,255,.09),rgba(255,255,255,.025))!important;
+  border-color:rgba(206,226,244,.20)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+}
+input:focus,select:focus,textarea:focus,#form input:focus,#form select:focus,#form textarea:focus{
+  border-color:rgba(168,196,222,.75)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 4px rgba(140,175,208,.18)!important;
+}
+.soc a{background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,255,255,.02))!important;border-color:rgba(206,226,244,.20)!important}
+.pill{background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,255,255,.02))!important;border-color:rgba(168,196,222,.32)!important}
+
+/* chapter seams: a thin light line instead of a hard edge */
+.continuous-site .continuous-chapter+.continuous-chapter{border-top:1px solid rgba(206,226,244,.10)}
+.continuous-site .continuous-chapter+.continuous-chapter::before{
+  background:linear-gradient(90deg,transparent,rgba(206,226,244,.55),transparent);
+  box-shadow:0 0 34px rgba(140,175,208,.30);
+}
+
+@media(max-width:820px){
+  /* a little more body in the glass on phones so copy stays crisp */
+  .pcard,.sk-card,.tools,.feat,.glass,.poster,.proj,.duo-ct,.quote .in,.stats div,.have,.filters,.values>div{
+    background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,255,255,.03)),
+               linear-gradient(160deg,rgba(14,21,30,.52),rgba(8,12,18,.44))!important;
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    backdrop-filter:blur(18px) saturate(140%);
+  }
+  .links{background:rgba(7,11,17,.94)!important}
+}
+@media(prefers-reduced-transparency:reduce){
+  .pcard,.sk-card,.tools,.feat,.glass,.poster,.proj,.duo-ct,.quote .in,.now,.stats div,.mini,.into div,.have,.filters,.values>div,.tl{
+    background:rgba(12,18,26,.94)!important;backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  #gl{opacity:.3}
+}
+
+/* ------------------------------------------------ 20. GLASS v5 — more light, thinner tint */
+:root{
+  --glass-tint:rgba(9,14,21,.32);
+  --glass-tint-2:rgba(18,27,38,.22);
+  --glass-edge:rgba(214,232,248,.24);
+}
+body{
+  background-image:
+    radial-gradient(860px 580px at 14% 6%,  rgba(140,175,208,.26), transparent 70%),
+    radial-gradient(740px 540px at 88% 20%, rgba(99,214,208,.16),  transparent 72%),
+    radial-gradient(1000px 760px at 44% 98%, rgba(126,160,200,.20), transparent 74%),
+    radial-gradient(1240px 940px at 76% 60%, rgba(92,122,160,.14), transparent 76%);
+}
+#gl{opacity:.55}
+.vig{background:radial-gradient(135% 105% at 50% 42%,transparent 68%,rgba(3,5,8,.52))}
+.pcard,.sk-card,.tools,.feat,.glass,.poster,.proj,.duo-ct,
+.quote .in,.now,.stats div,.mini,.into div,.have,.filters,.world,
+.cta-band .in,.values>div,.tl{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,.035) 34%,rgba(255,255,255,.02) 60%,rgba(255,255,255,.085) 100%),
+    linear-gradient(160deg,var(--glass-tint-2),var(--glass-tint))!important;
+}
+/* imagery behind the panels stays visible, so the glass has something to show */
+.quote .bg,.duo .bg,.sk-end .bg,.hero2 .bg,.pg-hero .bg,.pj-hero .bg,.sk-hero .bg{opacity:.62!important}
+.quote::after{
+  background:linear-gradient(90deg,rgba(5,7,11,.62) 14%,rgba(5,7,11,.22) 64%,rgba(5,7,11,.62)),
+             linear-gradient(180deg,rgba(5,7,11,.5),transparent 34%,rgba(5,7,11,.58))!important;
+}
+.duo::after{background:radial-gradient(58% 52% at 50% 26%,rgba(5,7,11,.7),rgba(5,7,11,.24) 74%),
+            linear-gradient(180deg,rgba(5,7,11,.34),rgba(5,7,11,.78) 74%,var(--veil))!important}
+
+/* ------------------------------------------------ 21. GLASS POLISH */
+/* stat tiles: number over label, both crisp on glass */
+.stats div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center}
+.stats b{line-height:1.08}
+.stats span{color:var(--ink-2)}
+/* small captions sitting on glass need one more step of contrast */
+.pcard .moto,.mini span,.now span,.tools .tl,.pcard .num,.thumb .k,.safe,.copy,.tagline,.sk-card .d{color:#8E9AAB}
+.tools .tl{color:#A5AFBD}
+/* keep the penlight off the body copy */
+.pcard .about,.sk-card .d,.proj p,.quote p,.duo p{color:#B4BFCC}
