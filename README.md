@@ -62,22 +62,43 @@ Any other static host works too — Netlify, Vercel, Cloudflare Pages — just d
 
 ```
 .
-├── index.html      # the entire website (structure + styles + scripts + images)
+├── index.html        # Home
+├── about.html        # About
+├── brothers.html     # The brothers
+├── projects.html     # Projects
+├── skills.html       # Skills & tools
+├── contact.html      # Contact + form
+├── assets/
+│   ├── style.css     # shared design system (one stylesheet, all pages)
+│   └── img/          # logo, wordmark, favicon and photos as real files
 ├── README.md
-├── .nojekyll       # tells GitHub Pages to serve files as-is
+├── .nojekyll
 └── .gitignore
 ```
 
+Each page is a real URL — clicking a nav link loads that page, and scrolling
+never reveals the next one. Shared CSS/JS lives in `assets/`, so photos and
+styles are cached once across the whole site.
+
 ## 🗺 Pages
 
-| Page | Route | Content |
+| Page | URL | Content |
 |---|---|---|
-| Home | `#home` | Hero, marquee, "Now Showing" scene cards |
-| About | `#about` | Origin story, values, CTA |
-| Brothers | `#brothers` | Full profiles — skills, stats, interests, socials |
-| Projects | `#projects` | Filterable project grid, featured case study |
-| Skills | `#skills` | Skill breakdown, tools & technologies, stats |
-| Contact | `#contact` | Contact details, message form, location |
+| Home | `/` | Hero, marquee, "Now Showing" scene cards |
+| About | `/about.html` | Origin story, values, CTA |
+| Brothers | `/brothers.html` | Full profiles — skills, stats, interests, socials |
+| Projects | `/projects.html` | Filterable project grid, featured case study |
+| Skills | `/skills.html` | Skill breakdown, tools & technologies, stats |
+| Contact | `/contact.html` | Contact details, message form, location |
+
+## 🎬 Motion
+
+GSAP + ScrollTrigger + Lenis drive: smooth scroll, cursor dot & label ring,
+mouse spotlight, scroll-progress bar, intro counter, staggered title reveals,
+text scramble, magnetic buttons, 3D tilt & glare, batched scroll reveals,
+animated skill bars, number counters, velocity-reactive marquee, elastic pops
+and hero parallax. Everything degrades gracefully — without the libraries or
+with `prefers-reduced-motion` the site still works and stays visible.
 
 ## 📬 Contact
 
@@ -90,12 +111,12 @@ Any other static host works too — Netlify, Vercel, Cloudflare Pages — just d
 
 Planned improvements before the public launch:
 
-- [ ] Add `viewport`, `charset`, Open Graph and favicon meta tags
+- [x] Add `viewport`, `charset`, Open Graph and favicon meta tags
 - [ ] Connect the contact form to a real email endpoint
 - [ ] Replace placeholder social links with live profiles
 - [ ] Real project screenshots + live demo links
-- [ ] Move images out of base64 into optimised `.webp` files
-- [ ] Split into separate pages for better SEO
+- [x] Move images out of base64 into separate files (now in `assets/img/`)
+- [x] Split into separate pages for better SEO
 
 ---
 

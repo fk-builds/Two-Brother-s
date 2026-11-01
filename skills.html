@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Skills — TwoBrothers</title>
+<meta name="description" content="Our toolkit: HTML, CSS, JavaScript, React, Next.js, Node.js, MongoDB, Figma, Photoshop, Illustrator.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TwoBrothers">
+<meta property="og:title" content="Skills — TwoBrothers">
+<meta property="og:description" content="Our toolkit: HTML, CSS, JavaScript, React, Next.js, Node.js, MongoDB, Figma, Photoshop, Illustrator.">
+<meta property="og:image" content="assets/img/wide-duo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="arr" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<canvas id="gl" aria-hidden="true"></canvas><div class="vig"></div><canvas id="grain" aria-hidden="true"></canvas><div class="lbx t"></div><div class="lbx b"></div><div id="cur"></div>
+<div id="intro" aria-hidden="true"><div class="ib t"></div><div class="ib b"></div><div class="it"><small>TWO BROTHERS PRESENT</small><h1><span class="silver">Two Brothers.</span> <span class="fire">One Vision.</span></h1><div class="ln"></div></div></div>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="index.html" aria-label="TwoBrothers home"><img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true" decoding="async"><img class="wordmark" src="assets/img/wordmark.svg" alt="" aria-hidden="true" decoding="async"></a>
+    <div class="links" id="links">
+      <a href="index.html" data-p="home">Home</a><a href="about.html" data-p="about">About</a><a href="brothers.html" data-p="brothers">Brothers</a><a href="projects.html" data-p="projects">Projects</a><a href="skills.html" data-p="skills" class="on" aria-current="page">Skills</a><a href="contact.html" data-p="contact">Contact</a>
+    </div>
+    <a class="btn sm nav-cta" href="contact.html">Let's Talk <svg width="16" height="16"><use href="#arr"/></svg></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+<main>
+<section class="page on" id="p-skills">
+  <div class="hero2"><div class="wrap h2g">
+    <div class="copy">
+      <p class="eyebrow rise">Our skills</p>
+      <h1><span class="silver ttl" style="--i:1">Skills that</span><br><span class="fire ttl" style="--i:3">build dreams.</span></h1>
+      <p class="t rise" style="--i:5">Two minds. One vision. Different strengths.</p>
+      <p class="t2 rise" style="--i:6">We combine technical expertise, creative thinking, and real-world experience to turn ideas into powerful digital solutions.</p>
+      <a class="btn sm rise" style="--i:7" href="projects.html">Explore Our Projects <svg width="16" height="16"><use href="#arr"/></svg></a>
+    </div>
+    <div class="tilt3d" data-tilt><div class="tt"><div class="stage">
+      <img src="assets/img/hero-duo.jpg" alt="Syed Luqman and Fawad Khan">
+      <div class="tag l" style="font-size:.9rem">Syed Luqman<small>Web Developer</small></div>
+      <div class="tag r" style="font-size:.9rem">Fawad Khan<small>UI/UX Designer</small></div>
+    </div></div></div>
+  </div></div>
+  <div class="wrap" style="padding-top:20px">
+    <div class="sk-grid">
+      <article class="sk-card b">
+        <h2><span class="silver">Syed</span> <span class="blue">Luqman</span></h2><div class="blue" style="font-size:1.1rem">Web Developer</div>
+        <p class="d">I turn ideas into functional, fast, and modern web applications. From frontend to backend, I build digital experiences that make an impact.</p>
+        <div class="box"><div class="bars" data-set="dev10" data-ic="1"></div></div>
+      </article>
+      <article class="sk-card o">
+        <h2><span class="silver">Fawad</span> <span class="orange">Khan</span></h2><div class="orange" style="font-size:1.1rem">UI/UX Designer</div>
+        <p class="d">I design clean, modern, and user-friendly interfaces that turn ideas into real experiences. Focused on visuals, interaction, and smooth user journeys.</p>
+        <div class="box"><div class="bars" data-set="des10" data-ic="1"></div></div>
+      </article>
+    </div>
+    <div class="tools">
+      <div><h3 style="font-size:1rem;letter-spacing:.06em">Tools &amp; Technologies</h3><p style="color:var(--mute);font-size:.88rem;margin:8px 0 16px">We work with the best tools to build faster, smarter, and better.</p><a class="btn sm" href="projects.html">Our Tech Stack <svg width="16" height="16"><use href="#arr"/></svg></a></div>
+      <div class="grid" id="toolgrid"></div>
+    </div>
+  </div>
+  <div class="sk-end"><div class="bg" style="background-image:url(assets/img/wide-duo.jpg)"></div><div class="in">
+    <h2><span class="silver">Two Brothers.</span><br><span class="fire">One Vision.</span><br><small style="display:block;font:300 1.05rem var(--body);text-transform:none;margin-top:14px;color:#c3cfe0">Different skills. Same mindset.<br>Build. Create. Grow.</small></h2>
+    <div class="stats"><div><b>2+</b><span>Years Experience</span></div><div><b>50+</b><span>Projects Completed</span></div><div><b>100%</b><span>Dedication</span></div><div><b>∞</b><span>Growth Mindset</span></div></div>
+  </div></div>
+</section>
+</main>
+<footer>
+  <div class="f-in">
+    <a class="logo" href="index.html" aria-label="TwoBrothers home"><img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true" decoding="async"><img class="wordmark" src="assets/img/wordmark.svg" alt="" aria-hidden="true" decoding="async"></a>
+    <div class="f-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="brothers.html">Brothers</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a></div>
+    <span class="tagline">CREATE · BUILD · GROW</span>
+    <a class="btn sm" href="contact.html">Let's Work Together <svg width="16" height="16"><use href="#arr"/></svg></a>
+  </div>
+  <div class="copy"><span>© 2025 TwoBrothers. All rights reserved.</span><span>Mardan, Pakistan | Global Clients</span></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  window.__stub = window.__stub || function(){
+    var e=document.createElement('div');
+    e.addEventListener=function(){}; e.querySelectorAll=function(){return []};
+    e.querySelector=function(){return null}; e.classList={toggle:function(){},add:function(){},remove:function(){}};
+    return e;
+  };
+  
+  var SK={
+    dev6:[['HTML / CSS',95],['JavaScript',90],['React',85],['Node.js',80],['MongoDB',75],['Git & GitHub',85]],
+    des6:[['Figma',95],['Adobe Photoshop',90],['Illustrator',85],['UI/UX Design',80],['Wireframing',75],['Prototyping',85]],
+    dev10:[['HTML / CSS',95,'‹›'],['JavaScript',90,'JS'],['React',85,'⚛'],['Next.js',80,'N'],['Node.js',78,'⬢'],['MongoDB',75,'◖'],['Express.js',80,'ex'],['Git & GitHub',85,'⎇'],['UI Libraries (Tailwind)',90,'≋'],['Problem Solving',88,'✦']],
+    des10:[['Figma',95,'F'],['Adobe Photoshop',90,'Ps'],['Adobe Illustrator',85,'Ai'],['UI/UX Design',80,'UX'],['Wireframing',75,'▢'],['Prototyping',85,'▣'],['Motion Design',80,'◉'],['Content Creation',85,'◎'],['Branding',80,'✧'],['Visual Storytelling',85,'▤']]
+  };
+  document.querySelectorAll('.bars').forEach(function(el){
+    var set=SK[el.dataset.set],ic=el.dataset.ic,cls=el.closest('.pcard,.sk-card').classList.contains('b')?'b':'o';
+    el.innerHTML=set.map(function(s){
+      return '<div class="bar '+cls+'">'+(ic?'<span class="ic">'+s[2]+'</span>':'')+'<span>'+s[0]+'</span><div class="trk"><div class="fill" style="--w:'+s[1]+'%"></div></div><em>'+s[1]+'%</em></div>';
+    }).join('');
+  });
+  var tools=[['VS Code','VS','#2f9bff'],['GitHub','GH','#fff'],['Figma','Fg','#ff7262'],['Photoshop','Ps','#31a8ff'],['Illustrator','Ai','#ff9a00'],['Tailwind CSS','~','#38bdf8'],['React','⚛','#61dafb'],['Next.js','N','#fff'],['Node.js','⬢','#6cc24a'],['MongoDB','◖','#4faa41'],['Express.js','ex','#fff'],['Supabase','⚡','#3ecf8e']];
+  (document.getElementById('toolgrid')||window.__stub()).innerHTML=tools.map(function(t){return '<div class="tl"><b style="color:'+t[2]+'">'+t[1]+'</b>'+t[0]+'</div>'}).join('');
+
+  var P=[
+    ['Shehzad Auto Tuning Workshop','Web Development','Modern website for auto tuning & car repair workshop with service details, gallery, and contact.',['HTML','Tailwind','JS'],['#0a2a55','#030a18','#1b8cff'],'PREMIUM CAR WASH & DETAILING'],
+    ['Sell Wave (Women\'s Fashion & Beauty)','E-Commerce','WhatsApp Business + Google Form based reselling store for fashion and beauty products.',['HTML','CSS','JS','Google Sheets'],['#5a1a5c','#14041a','#d946ef'],'BEAUTY FASHION LIFESTYLE'],
+    ['Red Apple Digital Agency','Web Development','Landing page for digital agency with services, portfolio and modern UI design.',['React','Tailwind','Framer'],['#5a0d0d','#120304','#ff3b2e'],'RED APPLE DIGITAL AGENCY'],
+    ['Fawad\'s AI (App UI/UX)','UI/UX Design','Advanced AI assistant app design with voice activation and modern interface.',['Figma','UI/UX','3D Design'],['#1a2a55','#04060f','#6d8cff'],'FAWAD\'S AI'],
+    ['Real Estate (Property Website)','Web Development','Modern real estate website with property listings, filters and contact integration.',['HTML','Tailwind','JS'],['#1d3a55','#05090f','#7cc4ff'],'FIND YOUR DREAM HOME'],
+    ['E-Learning Platform','Full Stack','Online learning platform with course management and student dashboard.',['React','Node.js','MongoDB'],['#0f3a52','#040a12','#2fd0ff'],'DASHBOARD'],
+    ['Restaurant Website','Web Development','Modern restaurant website with menu, online booking and gallery.',['HTML','Tailwind','JS'],['#5a2a0a','#120804','#ff8a2e'],'GOOD FOOD BETTER MOOD'],
+    ['Brand Identity Design','Branding','Logo, business card and complete brand identity for TwoBrothers.',['Illustrator','Photoshop'],['#222a38','#05070b','#e8eef8'],'TWO BROTHERS CREATIVE STUDIO'],
+    ['Travel Booking App (UI/UX)','UI/UX Design','Clean and modern travel booking app design with smooth user flow.',['Figma','UI/UX','Mobile'],['#0a4a5a','#04101a','#2fe0c8'],'EXPLORE THE WORLD']
+  ];
+  var cats=['All Projects','Web Development','UI/UX Design','Branding','E-Commerce','Full Stack','Other'];
+  var cur='All Projects';
+  var chips=(document.getElementById('chips')||window.__stub()),grid=(document.getElementById('pgrid')||window.__stub());
+  chips.innerHTML=cats.map(function(c){return '<button class="chip'+(c===cur?' on':'')+'">'+c+'</button>'}).join('');
+  grid.innerHTML=P.map(function(p,i){
+    var n=('0'+(i+1)).slice(-2);
+    return '<article class="proj" data-c="'+p[1]+'"><div class="thumb" style="background:radial-gradient(80% 90% at 70% 100%,'+p[4][0]+','+p[4][1]+')"><span class="n">'+n+'</span><span class="k">'+p[1]+'</span><div class="scr" style="background:linear-gradient(135deg,'+p[4][1]+','+p[4][0]+')"><b style="color:'+p[4][2]+'">'+p[5]+'</b><i style="background:'+p[4][2]+'"></i><u style="background:'+p[4][2]+'"></u></div>'+(p[1]==='UI/UX Design'?'<div class="ph" style="background:linear-gradient(180deg,'+p[4][0]+','+p[4][1]+')"></div>':'')+'</div><div class="pb"><h3>'+p[0]+'</h3><p>'+p[2]+'</p><div class="tg">'+p[3].map(function(t){return '<span>'+t+'</span>'}).join('')+'</div><div class="row"><a class="btn sm" href="contact.html">View Project <svg width="14" height="14"><use href="#arr"/></svg></a></div></div></article>';
+  }).join('');
+  chips.addEventListener('click',function(e){
+    var b=e.target.closest('.chip');if(!b)return;cur=b.textContent;
+    chips.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x===b)});
+    grid.querySelectorAll('.proj').forEach(function(p){
+      var c=p.dataset.c;p.hidden=!(cur==='All Projects'||c===cur||(cur==='Other'&&['Web Development','UI/UX Design','Branding','E-Commerce','Full Stack'].indexOf(c)<0));
+    });
+  });
+  (document.querySelector('.view')||window.__stub()).addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+    grid.classList.toggle('list',b.dataset.v==='list');
+  });
+  var links=document.getElementById('links'),burger=document.getElementById('burger');
+  burger.addEventListener('click',function(){var o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open')})});
+
+
+  var form=(document.getElementById('form')||window.__stub()),ok=(document.getElementById('ok')||window.__stub());
+  document.querySelectorAll('[data-fill]').forEach(function(a){a.addEventListener('click',function(){
+    setTimeout(function(){var m=document.getElementById('fm');m.value='Hi '+a.dataset.fill+', ';m.focus()},60)})});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('fn').value.trim(),m=document.getElementById('fe').value.trim(),s=document.getElementById('fs').value,t=document.getElementById('fm').value.trim();
+    ok.hidden=false;
+    if(!n||!/^\S+@\S+\.\S+$/.test(m)||!s||!t){
+      ok.style.cssText='border-color:#7a2a1f;background:rgba(255,90,60,.08);color:#ffb3a3';
+      ok.textContent='Please fill in your name, a valid email, a subject and your message.';return;
+    }
+    ok.style.cssText='';
+    ok.textContent='Thanks '+n+'. This preview form does not send messages yet. Email us at twobrothers.dev@gmail.com for now.';
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hov=matchMedia('(hover:hover)').matches;
+  var $=function(q){return document.querySelector(q)};
+  // intro
+  var intro=$('#intro');
+  var seen=false;try{seen=sessionStorage.getItem('tbseen')==='1'}catch(e){}
+  if(intro&&seen){intro.style.display='none';intro=null;document.documentElement.style.setProperty('--boot','0s');document.body.classList.add('cine');}
+  try{sessionStorage.setItem('tbseen','1')}catch(e){}
+  document.documentElement.style.setProperty('--boot',reduce?'0s':'3s');
+  function endIntro(){if(intro){intro.style.display='none';intro=null}document.body.classList.add('cine')}
+  setTimeout(endIntro,reduce?0:4100);
+  setTimeout(function(){document.body.classList.add('cine')},2600);
+  setTimeout(function(){document.documentElement.style.setProperty('--boot','0s')},6500);
+  if(intro)intro.addEventListener('click',function(){document.documentElement.style.setProperty('--boot','0s');endIntro()});
+
+  // scroll reveal
+  var rvSel='.sect,.values>div,.profiles>article,.pgrid .proj,.sk-card,.tools,.feat,.glass,.have,.duo-ct,.stats div,.nums div,.cta-band .in,.quote .in,.story-photo,.filters';
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08}):null;
+  document.querySelectorAll(rvSel).forEach(function(el){
+    if(!io)return;el.classList.add('rv');io.observe(el);
+  });
+  // re-arm reveals when a page is shown
+  function rearm(){document.querySelectorAll('.page.on .rv').forEach(function(el){if(!el.classList.contains('in'))io.observe(el)})}
+  window.addEventListener('hashchange',function(){document.documentElement.style.setProperty('--boot','0s');rearm()});
+
+  // 3D tilt
+  document.querySelectorAll('.pcard,.proj,.glass,.sk-card,.tools,.feat,.stats div').forEach(function(el){el.classList.add('tiltable')});
+  function tiltOn(el,max,sel){
+    el.addEventListener('pointermove',function(e){
+      if(e.pointerType==='touch')return;
+      var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      el.style.setProperty('--ry',((x-.5)*max).toFixed(2)+'deg');
+      el.style.setProperty('--rx',((.5-y)*max).toFixed(2)+'deg');
+      el.style.setProperty('--gx',(x*100)+'%');el.style.setProperty('--gy',(y*100)+'%');
+    });
+    el.addEventListener('pointerleave',function(){el.style.setProperty('--ry','0deg');el.style.setProperty('--rx','0deg')});
+  }
+  if(hov&&!reduce){
+    document.querySelectorAll('.tiltable').forEach(function(el){tiltOn(el,el.classList.contains('proj')?9:5)});
+    document.querySelectorAll('[data-tilt-card]').forEach(function(el){tiltOn(el,14)});
+    document.querySelectorAll('[data-tilt]').forEach(function(w){
+      var tt=w.firstElementChild;
+      window.addEventListener('pointermove',function(e){
+        var r=w.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+        var x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);
+        tt.style.setProperty('--ry',(x*10).toFixed(2)+'deg');tt.style.setProperty('--rx',(-y*7).toFixed(2)+'deg');
+      },{passive:true});
+    });
+  }
+  // cursor
+  var cur=$('#cur');
+  if(hov&&cur&&!reduce){
+    var cx=0,cy=0,tx=0,ty=0;
+    window.addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;cur.style.opacity=1},{passive:true});
+    (function f(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(f)})();
+    document.addEventListener('pointerover',function(e){cur.classList.toggle('big',!!e.target.closest('a,button,.chip,select'))});
+  }
+
+  // film grain
+  var g=$('#grain');
+  if(g&&!reduce){
+    var gc=g.getContext('2d');g.width=g.height=180;var id=gc.createImageData(180,180),last=0;
+    (function gr(t){if(t-last>70){last=t;for(var i=0;i<id.data.length;i+=4){var v=Math.random()*255;id.data[i]=id.data[i+1]=id.data[i+2]=v;id.data[i+3]=255}gc.putImageData(id,0,0)}requestAnimationFrame(gr)})(0);
+  }
+
+  // ===== WebGL scene =====
+  var cv=$('#gl');
+  if(!window.THREE||!cv)return;
+  var T=THREE,R;
+  try{R=new T.WebGLRenderer({canvas:cv,antialias:innerWidth>700,alpha:true,powerPreference:'high-performance'})}catch(e){cv.style.display='none';return}
+  var mobile=innerWidth<700;
+  R.setPixelRatio(Math.min(devicePixelRatio||1,mobile?1.5:2));
+  var S=new T.Scene();S.fog=new T.FogExp2(0x000000,.034);
+  var C=new T.PerspectiveCamera(58,1,.1,220);
+  function size(){var w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+  size();addEventListener('resize',size);
+
+  S.add(new T.AmbientLight(0x2a2f4a,.55));
+  var bl=new T.PointLight(0x2f2fff,3,70),ol=new T.PointLight(0x12d6b4,3,70),kl=new T.DirectionalLight(0xffffff,.35);
+  bl.position.set(-9,3,6);ol.position.set(9,2,6);kl.position.set(0,8,10);S.add(bl,ol,kl);
+
+  // crystal shards with glowing edges
+  var shards=[],geo=new T.OctahedronGeometry(1,0),egeo=new T.EdgesGeometry(geo);
+  var N=mobile?18:34;
+  for(var i=0;i<N;i++){
+    var left=i%2===0,col=left?0x2f2fff:0x12d6b4;
+    var m=new T.Mesh(geo,new T.MeshStandardMaterial({color:left?0x0a0a2a:0x062a24,metalness:.9,roughness:.22,flatShading:true,emissive:col,emissiveIntensity:.12}));
+    var ed=new T.LineSegments(egeo,new T.LineBasicMaterial({color:col,transparent:true,opacity:.8,blending:T.AdditiveBlending}));
+    m.add(ed);
+    var sc=.5+Math.random()*1.5;m.scale.set(sc*.45,sc*1.5,sc*.45);
+    m.position.set((Math.random()-.5)*36,(Math.random()-.5)*16,-Math.random()*50+6);
+    m.userData={s:new T.Vector3((Math.random()-.5)*.6,(Math.random()-.5)*.6,(Math.random()-.5)*.4),b:Math.random()*6.28,y:m.position.y};
+    S.add(m);shards.push(m);
+  }
+  // distant monoliths (the dark towers)
+  var tw=[];
+  for(var k=0;k<7;k++){
+    var h=14+Math.random()*26,w=2+Math.random()*3,bx=new T.Mesh(new T.BoxGeometry(w,h,w),new T.MeshStandardMaterial({color:0x070b14,metalness:.8,roughness:.4,flatShading:true}));
+    bx.position.set((k-3)*9+(Math.random()-.5)*4,-6+h/2-4,-52-Math.random()*20);
+    var le=new T.LineSegments(new T.EdgesGeometry(bx.geometry),new T.LineBasicMaterial({color:k%2?0x12d6b4:0x2f2fff,transparent:true,opacity:.55,blending:T.AdditiveBlending}));
+    bx.add(le);S.add(bx);tw.push(bx);
+  }
+  // rocky floor
+  var rocks=[];
+  for(var r=0;r<(mobile?18:34);r++){
+    var rg=new T.IcosahedronGeometry(1,1),p=rg.attributes.position;
+    for(var v=0;v<p.count;v++){var f=.75+Math.random()*.5;p.setXYZ(v,p.getX(v)*f,p.getY(v)*f,p.getZ(v)*f)}
+    rg.computeVertexNormals();
+    var rm=new T.Mesh(rg,new T.MeshStandardMaterial({color:0x0a0d14,metalness:.7,roughness:.35,flatShading:true}));
+    var rs=1+Math.random()*3;rm.scale.set(rs*1.4,rs,rs*1.2);
+    rm.position.set((Math.random()-.5)*60,-9.5-Math.random()*2,-Math.random()*50+8);
+    rm.rotation.set(Math.random()*3,Math.random()*3,0);S.add(rm);rocks.push(rm);
+  }
+  // soft sprites
+  function spr(c1,c2){var cn=document.createElement('canvas');cn.width=cn.height=128;var x=cn.getContext('2d'),gd=x.createRadialGradient(64,64,0,64,64,64);gd.addColorStop(0,c1);gd.addColorStop(1,c2);x.fillStyle=gd;x.fillRect(0,0,128,128);return new T.CanvasTexture(cn)}
+  var dot=spr('rgba(255,255,255,1)','rgba(255,255,255,0)');
+  var glows=[];
+  [[-14,2,-26,0x2f2fff,60],[14,0,-26,0x12d6b4,60]].forEach(function(g){
+    var sp=new T.Sprite(new T.SpriteMaterial({map:dot,color:g[3],transparent:true,opacity:.35,blending:T.AdditiveBlending,depthWrite:false}));
+    sp.position.set(g[0],g[1],g[2]);sp.scale.set(g[4],g[4],1);S.add(sp);glows.push(sp);
+  });
+  // embers
+  var EN=mobile?500:1300,ep=new Float32Array(EN*3),ec=new Float32Array(EN*3),ev=[];
+  for(var q=0;q<EN;q++){
+    ep[q*3]=(Math.random()-.5)*50;ep[q*3+1]=(Math.random()-.5)*26;ep[q*3+2]=-Math.random()*45+10;
+    var o=Math.random()>.45;ec[q*3]=o?1:.2;ec[q*3+1]=o?.5:.6;ec[q*3+2]=o?.15:1;ev.push(.15+Math.random()*.5);
+  }
+  var eg=new T.BufferGeometry();eg.setAttribute('position',new T.BufferAttribute(ep,3));eg.setAttribute('color',new T.BufferAttribute(ec,3));
+  var emb=new T.Points(eg,new T.PointsMaterial({size:.16,map:dot,vertexColors:true,transparent:true,opacity:.9,blending:T.AdditiveBlending,depthWrite:false}));
+  S.add(emb);
+
+  var PRE={home:[3,3,0,0,0],about:[1.2,4.2,-3,1,2],brothers:[3.4,3.4,0,-1,0],projects:[3.6,1.6,4,0,-1],skills:[3,3,-2,-1,1],contact:[2.2,3.6,3,1,-2]};
+  var cb=3,co=3,tb=3,to=3,off={x:0,y:0,z:0},toff={x:0,y:0,z:0},pulse=0,page='home';
+  function setPage(){
+    var h=(location.hash||'').replace('#','');page=PRE[h]?h:'home';
+    var p=PRE[page];tb=p[0];to=p[1];toff={x:p[2],y:p[3],z:p[4]};pulse=1;
+  }
+  setPage();addEventListener('hashchange',setPage);
+  var mx=0,my=0,smx=0,smy=0;
+  addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
+  var clock=new T.Clock(),sp=0,spT=0;
+  function onScroll(){var d=document.documentElement.scrollHeight-innerHeight;spT=d>0?scrollY/d:0}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var t0=performance.now();
+  function frame(){
+    var nowT=performance.now(),dt=Math.min((nowT-(frame.l||nowT))/1000,.05)||.016;frame.l=nowT;var t=clock.getElapsedTime();
+    smx+=(mx-smx)*.04;smy+=(my-smy)*.04;sp+=(spT-sp)*.05;
+    cb+=(tb-cb)*.03;co+=(to-co)*.03;
+    off.x+=(toff.x-off.x)*.03;off.y+=(toff.y-off.y)*.03;off.z+=(toff.z-off.z)*.03;
+    pulse*=.94;
+    bl.intensity=cb*(.9+Math.sin(t*1.3)*.1);ol.intensity=co*(.9+Math.cos(t*1.1)*.1);
+    glows[0].material.opacity=.12+cb*.07+Math.sin(t*.8)*.04;glows[1].material.opacity=.12+co*.07+Math.cos(t*.9)*.04;
+    // intro dolly + autonomous flythrough + scroll + pointer
+    var intro=Math.max(0,1-(performance.now()-t0)/3600);intro=intro*intro*intro;
+    C.position.x=Math.sin(t*.13)*3.2+smx*4+off.x;
+    C.position.y=1+Math.sin(t*.19)*1.3-smy*2.4-sp*7+off.y;
+    C.position.z=13+Math.cos(t*.11)*2.4-sp*20+off.z+intro*26-pulse*7;
+    C.rotation.z=Math.sin(t*.1)*.03+pulse*.08;
+    C.fov=58+pulse*10;C.updateProjectionMatrix();
+    C.lookAt(smx*3,-sp*5-.5+Math.sin(t*.2)*.6,-10);
+    shards.forEach(function(m){
+      var u=m.userData,spd=1+pulse*5;
+      m.rotation.x+=u.s.x*dt*spd;m.rotation.y+=u.s.y*dt*spd;m.rotation.z+=u.s.z*dt*spd;
+      m.position.y=u.y+Math.sin(t*.6+u.b)*.8;
+    });
+    tw.forEach(function(b,i){b.children[0].material.opacity=.4+Math.sin(t*.7+i)*.2});
+    var pp=eg.attributes.position.array;
+    for(var j=0;j<EN;j++){
+      pp[j*3+1]+=ev[j]*dt*(1+pulse*4);pp[j*3]+=Math.sin(t+j)*.003;
+      if(pp[j*3+1]>13){pp[j*3+1]=-13;pp[j*3]=(Math.random()-.5)*50}
+    }
+    eg.attributes.position.needsUpdate=true;
+    R.render(S,C);
+  }
+  if(reduce){frame()}
+  else{(function loop(){frame();requestAnimationFrame(loop)})()}
+})();
+</script>
+<script>
+/* ===================================================================
+   MOTION ENGINE — effects lifted from portfolio-motion.html
+   (GSAP + ScrollTrigger + Lenis). Fails safe: if the libs are missing
+   or the user prefers reduced motion, the site's own animations stay.
+   =================================================================== */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger) return;
+
+  var root = document.documentElement;
+  root.classList.add('motion');
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var hover = window.matchMedia('(hover:hover)').matches;
+
+  /* ---------------- smooth scroll ---------------- */
+  var lenis = null, vel = 0;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.09, smoothWheel: true, touchMultiplier: 1.4 });
+    lenis.on('scroll', function (e) { vel = e.velocity || 0; ScrollTrigger.update(); });
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+  function top() { if (lenis) lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0); }
+
+  /* ---------------- cursor: dot + label ring ---------------- */
+  if (hover) {
+    var dot = document.createElement('div'); dot.className = 'mo-dot';
+    var ring = document.createElement('div'); ring.className = 'mo-ring';
+    var lbl = document.createElement('i'); ring.appendChild(lbl);
+    document.body.appendChild(dot); document.body.appendChild(ring);
+    var qx = gsap.quickTo(ring, 'x', { duration: .45, ease: 'power3' });
+    var qy = gsap.quickTo(ring, 'y', { duration: .45, ease: 'power3' });
+    var dx = gsap.quickTo(dot, 'x', { duration: .1 });
+    var dy = gsap.quickTo(dot, 'y', { duration: .1 });
+    window.addEventListener('pointermove', function (e) {
+      qx(e.clientX); qy(e.clientY); dx(e.clientX); dy(e.clientY);
+      root.style.setProperty('--mx', e.clientX + 'px');
+      root.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target.closest('a,button,.chip,.poster,.pcard,.proj,.tl,.soc a');
+      ring.classList.toggle('on', !!t);
+      gsap.to(ring, { scale: t ? 1.55 : 1, duration: .4, ease: 'power3' });
+      lbl.textContent = t ? (t.dataset.cur || '') : '';
+    });
+  }
+
+  /* ---------------- spotlight + scroll progress ---------------- */
+  var spot = document.createElement('div'); spot.className = 'mo-spot'; document.body.appendChild(spot);
+  var prog = document.createElement('div'); prog.id = 'mo-prog'; document.body.appendChild(prog);
+  gsap.to(prog, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .3 } });
+
+  /* ---------------- intro: 0→100 counter ---------------- */
+  var intro = $('#intro');
+  if (intro) {
+    var pre = document.createElement('div');
+    pre.className = 'mo-pre';
+    pre.innerHTML = '<b>0</b><div class="bar"><i></i></div>';
+    intro.appendChild(pre);
+    var numEl = pre.querySelector('b'), barEl = pre.querySelector('.bar i'), obj = { v: 0 };
+    gsap.to(obj, {
+      v: 100, duration: 2.5, ease: 'power2.inOut',
+      onUpdate: function () { numEl.textContent = Math.round(obj.v); }
+    });
+    gsap.to(barEl, { scaleX: 1, duration: 2.5, ease: 'power2.inOut' });
+  }
+  function afterIntro(fn) {
+    var reduceBoot = root.style.getPropertyValue('--boot') === '0s';
+    setTimeout(fn, (intro && getComputedStyle(intro).display !== 'none') ? 4050 : 150);
+  }
+
+  /* ---------------- text scramble ---------------- */
+  var CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+=<>/';
+  function scramble(el, dur) {
+    if (!el) return;
+    var text = el.dataset.moText || el.textContent;
+    el.dataset.moText = text;
+    var t0 = performance.now(); dur = dur || 700;
+    (function step(now) {
+      var p = Math.min((now - t0) / dur, 1), out = '';
+      for (var i = 0; i < text.length; i++) {
+        out += (text[i] === ' ' || i < text.length * p) ? text[i] : CH[Math.floor(Math.random() * CH.length)];
+      }
+      el.textContent = out;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = text;
+    })(t0);
+  }
+  $$('.links a').forEach(function (a) {
+    a.addEventListener('mouseenter', function () { scramble(a, 420); });
+  });
+
+  /* ---------------- magnetic buttons ---------------- */
+  $$('.btn, .btn.send, .soc a').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = el.getBoundingClientRect();
+      gsap.to(el, { x: (e.clientX - r.left - r.width / 2) * .3, y: (e.clientY - r.top - r.height / 2) * .3, duration: .45, ease: 'power3' });
+    });
+    el.addEventListener('pointerleave', function () {
+      gsap.to(el, { x: 0, y: 0, duration: .9, ease: 'elastic.out(1,.4)' });
+    });
+  });
+
+  /* ---------------- 3D tilt + glare ---------------- */
+  $$('.pcard, .sk-card, .proj, .poster, .tools, .feat, .glass, .stats div, .tl').forEach(function (el) {
+    if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+    el.classList.add('mo-tilt');
+    if (!el.querySelector(':scope > .mo-glare')) {
+      var g = document.createElement('div'); g.className = 'mo-glare'; el.appendChild(g);
+    }
+    el.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(el, { rotationY: px * 12, rotationX: -py * 12, transformPerspective: 900, duration: .5, ease: 'power2', overwrite: 'auto' });
+      el.style.setProperty('--gx', ((px + .5) * 100) + '%');
+      el.style.setProperty('--gy', ((py + .5) * 100) + '%');
+      el.classList.add('tilting');
+    });
+    el.addEventListener('pointerleave', function () {
+      gsap.to(el, { rotationX: 0, rotationY: 0, duration: .8, ease: 'power3', overwrite: 'auto' });
+      el.classList.remove('tilting');
+    });
+  });
+
+  /* ---------------- marquee: velocity reactive + skew ---------------- */
+  var track = $('.marq .track');
+  var mq = null;
+  if (track) {
+    gsap.set(track, { xPercent: 0 });
+    mq = gsap.to(track, { xPercent: -50, repeat: -1, duration: 26, ease: 'none' });
+    gsap.ticker.add(function () {
+      if (!mq) return;
+      mq.timeScale(1 + Math.min(Math.abs(vel) * .06, 5));
+      vel *= .92;
+    });
+    gsap.fromTo(track, { skewX: 0 }, {
+      skewX: -7, ease: 'none',
+      scrollTrigger: { trigger: '.marq', start: 'top bottom', end: 'bottom top', scrub: .6 }
+    });
+  }
+
+  /* ---------------- counters ---------------- */
+  function countUp(el) {
+    var raw = (el.dataset.moNum || el.textContent).trim();
+    var m = raw.match(/^([\d.,]+)(.*)$/);
+    if (!m) return;
+    var end = parseFloat(m[1].replace(/,/g, '')), suffix = m[2], o = { v: 0 };
+    el.dataset.moNum = raw;
+    gsap.to(o, {
+      v: end, duration: 1.8, ease: 'power2.out',
+      onUpdate: function () { el.textContent = Math.round(o.v) + suffix; },
+      onComplete: function () { el.textContent = raw; }
+    });
+  }
+  $$('.nums b, .mini b, .stats b, .pcard .num').forEach(function (el) {
+    ScrollTrigger.create({ trigger: el, start: 'top 92%', once: true, onEnter: function () { countUp(el); } });
+  });
+
+  /* ---------------- skill bars ---------------- */
+  $$('.bar .fill').forEach(function (f) {
+    gsap.set(f, { scaleX: 0, transformOrigin: '0 50%' });
+    gsap.to(f, {
+      scaleX: 1, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: f, start: 'top 95%', once: true }
+    });
+  });
+
+  /* ---------------- elastic pops ---------------- */
+  $$('.cta-band .btn, .have .btn, .btn.send, .quote .script, .sk-end h2').forEach(function (el) {
+    gsap.fromTo(el, { scale: .82, opacity: 0 }, {
+      scale: 1, opacity: 1, duration: 1.4, ease: 'elastic.out(1,.55)',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true }
+    });
+  });
+
+  /* ---------------- title parallax ---------------- */
+  $$('.hero-copy').forEach(function (el) {
+    gsap.to(el, { yPercent: -14, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  });
+
+  /* ---------------- reveals ---------------- */
+  var REVEAL = '.rv, .sect > *, .values > div, .profiles > article, .pgrid .proj, .sk-card, .tools, .feat, .glass, .have, .duo-ct, .stats div, .nums div, .cta-band .in, .quote .in, .story-photo, .filters, .poster';
+  function boot() {
+    var els = $$(REVEAL).filter(function (el) { return !el.dataset.moReady; });
+    els.forEach(function (el) { el.dataset.moReady = '1'; });
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: 44 });
+    ScrollTrigger.batch(els, {
+      start: 'top 94%',
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { opacity: 1, y: 0, duration: .95, stagger: .09, ease: 'power3.out', overwrite: true });
+      }
+    });
+  }
+
+  /* ---------------- per page entrance ---------------- */
+  function pageIn(silent) {
+    var page = $('.page.on');
+    if (!page) return;
+    var ttls = $$('.ttl', page);
+    if (ttls.length && !silent) {
+      gsap.fromTo(ttls, { yPercent: 110, opacity: 0, rotate: 2.5 }, {
+        yPercent: 0, opacity: 1, rotate: 0, duration: 1.15, stagger: .12, ease: 'expo.out', overwrite: true, delay: .1
+      });
+    }
+    var eb = $$('.eyebrow', page);
+    eb.forEach(function (e, i) { setTimeout(function () { scramble(e, 800); }, 180 + i * 120); });
+    boot();
+    ScrollTrigger.refresh();
+    // safety: anything already on screen must never stay hidden
+    setTimeout(function () {
+      $$(REVEAL, page).forEach(function (el) {
+        if (getComputedStyle(el).opacity === '0') {
+          var r = el.getBoundingClientRect();
+          if (r.top < innerHeight * .98 && r.bottom > 0) gsap.to(el, { opacity: 1, y: 0, duration: .6 });
+        }
+      });
+    }, 1400);
+  }
+
+  /* navigation is real now */
+
+  /* ---------------- boot ---------------- */
+  var liveIntro = document.getElementById('intro');
+  afterIntro(function () { pageIn(); ScrollTrigger.refresh(); });
+  // deep-linked or late-font layouts
+  window.addEventListener('load', function () { setTimeout(function () { ScrollTrigger.refresh(); }, 400); });
+  window.addEventListener('resize', function () { clearTimeout(window.__moR); window.__moR = setTimeout(function () { ScrollTrigger.refresh(); }, 250); });
+})();
+
+</script>
+</body>
+</html>
