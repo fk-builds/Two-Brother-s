@@ -670,6 +670,60 @@ select option{background:#0b0b12;color:#fff}
 .stage .tag,.stage .tag small{color:#fff}
 .stage .tag small{color:#c3cbdb}
 
+
+/* ===================================================================
+   MOTION LAYER  (borrowed from portfolio-motion.html)
+   GSAP + ScrollTrigger + Lenis : cursor, spotlight, progress,
+   split reveals, scramble, magnetic buttons, tilt/glare, counters,
+   velocity marquee, elastic pops, parallax titles
+   =================================================================== */
+html.motion{scroll-behavior:auto}
+html.motion,html.motion body{overflow-anchor:none}
+
+/* cursor */
+.mo-dot,.mo-ring{position:fixed;top:0;left:0;z-index:70;border-radius:50%;pointer-events:none;display:none}
+@media(hover:hover){.mo-dot,.mo-ring{display:flex}}
+.mo-dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:#fff;mix-blend-mode:difference}
+.mo-ring{width:46px;height:46px;margin:-23px 0 0 -23px;border:1px solid rgba(150,170,255,.65);align-items:center;justify-content:center;
+  font:800 8.5px var(--body);letter-spacing:.16em;text-transform:uppercase;color:#05050a;transition:background .3s,border-color .3s,opacity .3s}
+.mo-ring.on{background:#fff;border-color:#fff}
+.mo-ring i{font-style:normal;opacity:0;transition:opacity .2s}
+.mo-ring.on i{opacity:1}
+html.motion #cur{display:none!important}
+
+/* spotlight + progress */
+.mo-spot{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .8s;
+  background:radial-gradient(560px circle at var(--mx,50%) var(--my,40%),rgba(47,47,255,.14),transparent 62%)}
+html.motion .mo-spot{opacity:1}
+#mo-prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:65;pointer-events:none;
+  transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#2f2fff,#5eead4);box-shadow:0 0 12px rgba(47,47,255,.7)}
+
+/* intro counter */
+#intro .mo-pre{position:absolute;left:50%;bottom:11vh;transform:translateX(-50%);z-index:5;width:min(340px,64vw);text-align:center}
+#intro .mo-pre b{display:block;font:800 1.05rem var(--body);letter-spacing:.2em;color:#fff;margin-bottom:12px}
+#intro .mo-pre .bar{height:1px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
+#intro .mo-pre .bar i{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#2f2fff,#5eead4);transform:scaleX(0);transform-origin:0 50%}
+
+/* neutralise the site's own reveals — GSAP owns them now */
+html.motion .rv:not(.in){opacity:1;translate:none;scale:1}
+html.motion .page.on .ttl{animation:none!important}
+html.motion .marq .track{animation:none!important}
+html.motion .logo img.mark{animation:none!important}
+html.motion .stage{animation:none!important}
+html.motion .stage img{animation:none!important}
+html.motion .bar .fill{animation:none!important}
+html.motion .mouse::after{animation:none!important}
+
+/* motion-ready states (only applied when GSAP is present) */
+.mo-anim{will-change:transform,opacity}
+.mo-glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .45s;
+  background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(190,210,255,.20),transparent 62%)}
+.mo-tilt:hover .mo-glare,.mo-tilt.tilting .mo-glare{opacity:1}
+html.motion .tiltable{transform:none}
+
+/* nav scramble keeps layout steady */
+html.motion .links a{display:inline-block;min-width:1px}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1194,4 +1248,250 @@ select option{background:#0b0b12;color:#fff}
   if(reduce){frame()}
   else{(function loop(){frame();requestAnimationFrame(loop)})()}
 })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ===================================================================
+   MOTION ENGINE — effects lifted from portfolio-motion.html
+   (GSAP + ScrollTrigger + Lenis). Fails safe: if the libs are missing
+   or the user prefers reduced motion, the site's own animations stay.
+   =================================================================== */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger) return;
+
+  var root = document.documentElement;
+  root.classList.add('motion');
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var hover = window.matchMedia('(hover:hover)').matches;
+
+  /* ---------------- smooth scroll ---------------- */
+  var lenis = null, vel = 0;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.09, smoothWheel: true, touchMultiplier: 1.4 });
+    lenis.on('scroll', function (e) { vel = e.velocity || 0; ScrollTrigger.update(); });
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+  function top() { if (lenis) lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0); }
+
+  /* ---------------- cursor: dot + label ring ---------------- */
+  if (hover) {
+    var dot = document.createElement('div'); dot.className = 'mo-dot';
+    var ring = document.createElement('div'); ring.className = 'mo-ring';
+    var lbl = document.createElement('i'); ring.appendChild(lbl);
+    document.body.appendChild(dot); document.body.appendChild(ring);
+    var qx = gsap.quickTo(ring, 'x', { duration: .45, ease: 'power3' });
+    var qy = gsap.quickTo(ring, 'y', { duration: .45, ease: 'power3' });
+    var dx = gsap.quickTo(dot, 'x', { duration: .1 });
+    var dy = gsap.quickTo(dot, 'y', { duration: .1 });
+    window.addEventListener('pointermove', function (e) {
+      qx(e.clientX); qy(e.clientY); dx(e.clientX); dy(e.clientY);
+      root.style.setProperty('--mx', e.clientX + 'px');
+      root.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target.closest('a,button,.chip,.poster,.pcard,.proj,.tl,.soc a');
+      ring.classList.toggle('on', !!t);
+      gsap.to(ring, { scale: t ? 1.55 : 1, duration: .4, ease: 'power3' });
+      lbl.textContent = t ? (t.dataset.cur || '') : '';
+    });
+  }
+
+  /* ---------------- spotlight + scroll progress ---------------- */
+  var spot = document.createElement('div'); spot.className = 'mo-spot'; document.body.appendChild(spot);
+  var prog = document.createElement('div'); prog.id = 'mo-prog'; document.body.appendChild(prog);
+  gsap.to(prog, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .3 } });
+
+  /* ---------------- intro: 0→100 counter ---------------- */
+  var intro = $('#intro');
+  if (intro) {
+    var pre = document.createElement('div');
+    pre.className = 'mo-pre';
+    pre.innerHTML = '<b>0</b><div class="bar"><i></i></div>';
+    intro.appendChild(pre);
+    var numEl = pre.querySelector('b'), barEl = pre.querySelector('.bar i'), obj = { v: 0 };
+    gsap.to(obj, {
+      v: 100, duration: 2.5, ease: 'power2.inOut',
+      onUpdate: function () { numEl.textContent = Math.round(obj.v); }
+    });
+    gsap.to(barEl, { scaleX: 1, duration: 2.5, ease: 'power2.inOut' });
+  }
+  function afterIntro(fn) {
+    var reduceBoot = root.style.getPropertyValue('--boot') === '0s';
+    setTimeout(fn, intro ? 4050 : 120);
+  }
+
+  /* ---------------- text scramble ---------------- */
+  var CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+=<>/';
+  function scramble(el, dur) {
+    if (!el) return;
+    var text = el.dataset.moText || el.textContent;
+    el.dataset.moText = text;
+    var t0 = performance.now(); dur = dur || 700;
+    (function step(now) {
+      var p = Math.min((now - t0) / dur, 1), out = '';
+      for (var i = 0; i < text.length; i++) {
+        out += (text[i] === ' ' || i < text.length * p) ? text[i] : CH[Math.floor(Math.random() * CH.length)];
+      }
+      el.textContent = out;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = text;
+    })(t0);
+  }
+  $$('.links a').forEach(function (a) {
+    a.addEventListener('mouseenter', function () { scramble(a, 420); });
+  });
+
+  /* ---------------- magnetic buttons ---------------- */
+  $$('.btn, .btn.send, .soc a').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = el.getBoundingClientRect();
+      gsap.to(el, { x: (e.clientX - r.left - r.width / 2) * .3, y: (e.clientY - r.top - r.height / 2) * .3, duration: .45, ease: 'power3' });
+    });
+    el.addEventListener('pointerleave', function () {
+      gsap.to(el, { x: 0, y: 0, duration: .9, ease: 'elastic.out(1,.4)' });
+    });
+  });
+
+  /* ---------------- 3D tilt + glare ---------------- */
+  $$('.pcard, .sk-card, .proj, .poster, .tools, .feat, .glass, .stats div, .tl').forEach(function (el) {
+    if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+    el.classList.add('mo-tilt');
+    if (!el.querySelector(':scope > .mo-glare')) {
+      var g = document.createElement('div'); g.className = 'mo-glare'; el.appendChild(g);
+    }
+    el.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(el, { rotationY: px * 12, rotationX: -py * 12, transformPerspective: 900, duration: .5, ease: 'power2', overwrite: 'auto' });
+      el.style.setProperty('--gx', ((px + .5) * 100) + '%');
+      el.style.setProperty('--gy', ((py + .5) * 100) + '%');
+      el.classList.add('tilting');
+    });
+    el.addEventListener('pointerleave', function () {
+      gsap.to(el, { rotationX: 0, rotationY: 0, duration: .8, ease: 'power3', overwrite: 'auto' });
+      el.classList.remove('tilting');
+    });
+  });
+
+  /* ---------------- marquee: velocity reactive + skew ---------------- */
+  var track = $('.marq .track');
+  var mq = null;
+  if (track) {
+    gsap.set(track, { xPercent: 0 });
+    mq = gsap.to(track, { xPercent: -50, repeat: -1, duration: 26, ease: 'none' });
+    gsap.ticker.add(function () {
+      if (!mq) return;
+      mq.timeScale(1 + Math.min(Math.abs(vel) * .06, 5));
+      vel *= .92;
+    });
+    gsap.fromTo(track, { skewX: 0 }, {
+      skewX: -7, ease: 'none',
+      scrollTrigger: { trigger: '.marq', start: 'top bottom', end: 'bottom top', scrub: .6 }
+    });
+  }
+
+  /* ---------------- counters ---------------- */
+  function countUp(el) {
+    var raw = (el.dataset.moNum || el.textContent).trim();
+    var m = raw.match(/^([\d.,]+)(.*)$/);
+    if (!m) return;
+    var end = parseFloat(m[1].replace(/,/g, '')), suffix = m[2], o = { v: 0 };
+    el.dataset.moNum = raw;
+    gsap.to(o, {
+      v: end, duration: 1.8, ease: 'power2.out',
+      onUpdate: function () { el.textContent = Math.round(o.v) + suffix; },
+      onComplete: function () { el.textContent = raw; }
+    });
+  }
+  $$('.nums b, .mini b, .stats b, .pcard .num').forEach(function (el) {
+    ScrollTrigger.create({ trigger: el, start: 'top 92%', once: true, onEnter: function () { countUp(el); } });
+  });
+
+  /* ---------------- skill bars ---------------- */
+  $$('.bar .fill').forEach(function (f) {
+    gsap.set(f, { scaleX: 0, transformOrigin: '0 50%' });
+    gsap.to(f, {
+      scaleX: 1, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: f, start: 'top 95%', once: true }
+    });
+  });
+
+  /* ---------------- elastic pops ---------------- */
+  $$('.cta-band .btn, .have .btn, .btn.send, .quote .script, .sk-end h2').forEach(function (el) {
+    gsap.fromTo(el, { scale: .82, opacity: 0 }, {
+      scale: 1, opacity: 1, duration: 1.4, ease: 'elastic.out(1,.55)',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true }
+    });
+  });
+
+  /* ---------------- title parallax ---------------- */
+  $$('.hero-copy').forEach(function (el) {
+    gsap.to(el, { yPercent: -14, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  });
+
+  /* ---------------- reveals ---------------- */
+  var REVEAL = '.rv, .sect > *, .values > div, .profiles > article, .pgrid .proj, .sk-card, .tools, .feat, .glass, .have, .duo-ct, .stats div, .nums div, .cta-band .in, .quote .in, .story-photo, .filters, .poster';
+  function boot() {
+    var els = $$(REVEAL).filter(function (el) { return !el.dataset.moReady; });
+    els.forEach(function (el) { el.dataset.moReady = '1'; });
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: 44 });
+    ScrollTrigger.batch(els, {
+      start: 'top 94%',
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { opacity: 1, y: 0, duration: .95, stagger: .09, ease: 'power3.out', overwrite: true });
+      }
+    });
+  }
+
+  /* ---------------- per page entrance ---------------- */
+  function pageIn(silent) {
+    var page = $('.page.on');
+    if (!page) return;
+    var ttls = $$('.ttl', page);
+    if (ttls.length && !silent) {
+      gsap.fromTo(ttls, { yPercent: 110, opacity: 0, rotate: 2.5 }, {
+        yPercent: 0, opacity: 1, rotate: 0, duration: 1.15, stagger: .12, ease: 'expo.out', overwrite: true, delay: .1
+      });
+    }
+    var eb = $$('.eyebrow', page);
+    eb.forEach(function (e, i) { setTimeout(function () { scramble(e, 800); }, 180 + i * 120); });
+    boot();
+    ScrollTrigger.refresh();
+    // safety: anything already on screen must never stay hidden
+    setTimeout(function () {
+      $$(REVEAL, page).forEach(function (el) {
+        if (getComputedStyle(el).opacity === '0') {
+          var r = el.getBoundingClientRect();
+          if (r.top < innerHeight * .98 && r.bottom > 0) gsap.to(el, { opacity: 1, y: 0, duration: .6 });
+        }
+      });
+    }, 1400);
+  }
+
+  /* ---------------- wire page switching ---------------- */
+  var lastHash = location.hash;
+  window.addEventListener('hashchange', function () {
+    if (location.hash === lastHash) return;
+    lastHash = location.hash;
+    top();
+    setTimeout(function () { pageIn(); }, 80);
+  });
+
+  /* ---------------- boot ---------------- */
+  afterIntro(function () { pageIn(); ScrollTrigger.refresh(); });
+  // deep-linked or late-font layouts
+  window.addEventListener('load', function () { setTimeout(function () { ScrollTrigger.refresh(); }, 400); });
+  window.addEventListener('resize', function () { clearTimeout(window.__moR); window.__moR = setTimeout(function () { ScrollTrigger.refresh(); }, 250); });
+})();
+
 </script>
