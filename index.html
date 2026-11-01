@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="assets/design-system.css">
 </head>
-<body>
+<body class="continuous-site">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -31,14 +31,14 @@
   <div class="nav-in">
     <a class="logo" href="index.html" aria-label="TwoBrothers home"><img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true" decoding="async"><img class="wordmark" src="assets/img/wordmark.svg" alt="" aria-hidden="true" decoding="async"></a>
     <div class="links" id="links">
-      <a href="index.html" data-p="home" class="on" aria-current="page">Home</a><a href="about.html" data-p="about">About</a><a href="brothers.html" data-p="brothers">Brothers</a><a href="projects.html" data-p="projects">Projects</a><a href="skills.html" data-p="skills">Skills</a><a href="contact.html" data-p="contact">Contact</a>
+      <a href="#p-home" data-p="home" class="on" aria-current="page">Home</a><a href="#p-about" data-p="about">About</a><a href="#p-brothers" data-p="brothers">Brothers</a><a href="#p-projects" data-p="projects">Projects</a><a href="#p-skills" data-p="skills">Skills</a><a href="#p-contact" data-p="contact">Contact</a>
     </div>
     <a class="btn sm nav-cta" href="contact.html">Let's Talk <svg width="16" height="16"><use href="#arr"/></svg></a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
 </nav>
 <main>
-<section class="page on" id="p-home">
+<section class="page on continuous-chapter" id="p-home">
   <div class="hero">
     <div class="tilt3d" data-tilt><div class="tt"><div class="stage">
       <img src="assets/img/hero-duo.jpg" alt="Syed Luqman and Fawad Khan">
@@ -60,6 +60,207 @@
       <a class="poster rv" data-tilt-card href="projects.html" style="--art:radial-gradient(90% 70% at 30% 20%,#8CAFD0 0,#16283A 40%,#05080f 80%)"><i></i><small>SCENE 01</small><h3>Projects</h3><p>Websites, apps and brands we shipped.</p><span class="go">Watch the work →</span></a>
       <a class="poster rv" data-tilt-card href="skills.html" style="--art:radial-gradient(90% 70% at 70% 20%,#ff7a2e 0,#5a2208 40%,#05080f 80%)"><i></i><small>SCENE 02</small><h3>Skills</h3><p>The tools and craft behind every build.</p><span class="go">Meet the toolkit →</span></a>
       <a class="poster rv" data-tilt-card href="contact.html" style="--art:radial-gradient(90% 70% at 50% 10%,#7a4cff 0,#1d1a55 40%,#05080f 80%)"><i></i><small>SCENE 03</small><h3>Contact</h3><p>Tell us your idea. We'll direct the rest.</p><span class="go">Start the next scene →</span></a>
+    </div>
+  </div>
+</section>
+<section class="page on continuous-chapter" id="p-about">
+  <div class="pg-hero">
+    <div class="bg" style="background-image:url(assets/img/wide-duo.jpg)"></div>
+    <div class="wrap">
+      <p class="eyebrow rise">About us</p>
+      <h1><span class="silver ttl" style="--i:1">More than<br>brothers.</span><br><span class="fire ttl" style="--i:3;font-size:.9em">One shared vision.</span></h1>
+      <p class="lead">Different strengths. One direction.</p>
+      <p class="t">We're two creative minds building digital experiences through design, development, and a shared drive to keep improving.</p>
+    </div>
+  </div>
+  <div class="wrap sect">
+    <div class="split">
+      <div class="story">
+        <p class="eyebrow">Our story</p>
+        <h2 style="margin-bottom:22px"><span class="silver">How it</span> <span class="fire">started</span></h2>
+        <p>We've been side by side since the beginning, through school, challenges, and every new idea.</p>
+        <p>What started as a bond of friendship slowly turned into a shared passion for technology and creativity.</p>
+        <p>We learned by building, made mistakes, fixed them, and kept going. Today, we're turning our ideas into useful digital experiences, and this is just the beginning.</p>
+        <p class="script blue" style="font-size:2rem;margin-top:24px;transform:rotate(-5deg)">Same Roots.<br>Bigger Dreams.</p>
+      </div>
+      <div class="story-photo">
+        <img src="assets/img/banner-duo.jpg" alt="Syed Luqman and Fawad Khan">
+        <div class="cap c1 script"><small>Web Developer</small>Syed Luqman</div>
+        <div class="cap c2 script"><small>UI/UX Designer</small>Fawad Khan</div>
+      </div>
+    </div>
+  </div>
+  <div class="band values">
+    <div class="blue"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><h3>Curiosity</h3><p>We're always learning, exploring new tools, and staying curious about what's next.</p></div>
+    <div class="blue"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg><h3>Craft</h3><p>We care about the details. Clean code, thoughtful design, and meaningful user experiences.</p></div>
+    <div class="orange"><svg viewBox="0 0 24 24"><path d="M3 18l6-6 4 4 8-9M15 7h6v6"/></svg><h3>Consistency</h3><p style="color:var(--mute)">Small steps, daily effort, and a long-term mindset keep us moving forward.</p></div>
+  </div>
+  <div class="cta-band"><div class="in"><div><h2><em>The next</em> chapter starts <b>here.</b></h2><p>Let's build something meaningful.</p></div><a class="btn" href="contact.html">Contact Us <svg width="18" height="18"><use href="#arr"/></svg></a></div></div>
+</section>
+<section class="page on continuous-chapter" id="p-brothers">
+  <div class="duo">
+    <div class="head">
+      <p class="eyebrow rise" style="justify-content:center">Two Brothers</p>
+      <h1><span class="silver ttl" style="--i:1">Meet the</span><br><span class="fire ttl" style="--i:3">Brothers</span></h1>
+      <p class="sub rise" style="--i:5">Different Minds. Same Vision.</p>
+      <p class="rise" style="--i:6">We're two brothers, two different paths, with one shared goal: to create, build, and make an impact in the digital world.</p>
+    </div>
+    <div class="tilt3d" data-tilt><div class="tt"><div class="stage">
+      <img src="assets/img/hero-duo.jpg" alt="Syed Luqman and Fawad Khan">
+      <div class="tag l script" style="color:var(--blue2);font-size:1.7rem">Syed Luqman<small style="font-family:var(--display);font-size:.62rem;letter-spacing:.3em">WEB DEVELOPER</small></div>
+      <div class="tag r script" style="color:var(--orange2);font-size:1.7rem">Fawad Khan<small style="font-family:var(--display);font-size:.62rem;letter-spacing:.3em">UI/UX DESIGNER</small></div>
+    </div></div></div>
+  </div>
+  <div class="wrap sect" style="padding-top:30px">
+    <div class="profiles">
+      <article class="pcard b">
+        <div class="top"><div>
+          <div class="num blue">01</div><h2>Syed Luqman</h2><div class="role blue">Web Developer</div><div class="moto">Code / Build / Improve</div>
+        </div><img class="face" src="assets/img/syed.jpg" alt="Syed Luqman"></div>
+        <p class="about">I'm Syed Luqman, a passionate web developer who loves turning ideas into real, functional web applications. I enjoy working with modern technologies, solving problems, and building clean, responsive, and user-friendly websites.</p>
+        <a class="btn sm b" href="projects.html">View Projects <svg width="16" height="16"><use href="#arr"/></svg></a>
+        <div class="soc"><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">GH</a><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://x.com" target="_blank" rel="noopener" aria-label="X">X</a></div>
+        <div class="mini"><div><b class="blue">3+</b><span>Years Learning</span></div><div><b class="blue">5+</b><span>Projects Built</span></div><div><b class="blue">100%</b><span>Dedication</span></div><div><b class="blue">∞</b><span>Growth Mindset</span></div></div>
+        <h4 class="blue">My Skills <a class="blue" href="skills.html">View All Skills</a></h4>
+        <div class="bars" data-set="dev6"></div>
+        <h4>What I'm Into</h4>
+        <div class="into blue"><div><svg viewBox="0 0 24 24"><path d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg>Web Development</div><div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>Problem Solving</div><div><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 10h8M8 14h5"/></svg>Learning New Tech</div><div><svg viewBox="0 0 24 24"><path d="M12 3l9 5v8l-9 5-9-5V8z"/></svg>Building Projects</div></div>
+        <div class="now"><span>Currently Working On</span><b>Advanced Web Apps &amp; Full Stack Projects</b></div>
+      </article>
+      <article class="pcard o">
+        <div class="top"><div>
+          <div class="num orange">02</div><h2>Fawad Khan</h2><div class="role orange">UI/UX Designer</div><div class="moto">Design / Create / Inspire</div>
+        </div><img class="face" src="assets/img/fawad.jpg" alt="Fawad Khan"></div>
+        <p class="about">I'm Fawad Khan, a UI/UX designer who turns ideas into beautiful and meaningful digital experiences. I focus on clean design, smooth interactions, and user-centered solutions that make an impact.</p>
+        <a class="btn sm o" href="projects.html">View Projects <svg width="16" height="16"><use href="#arr"/></svg></a>
+        <div class="soc"><a href="https://behance.net" target="_blank" rel="noopener" aria-label="Behance">Bē</a><a href="https://dribbble.com" target="_blank" rel="noopener" aria-label="Dribbble">Dr</a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://x.com" target="_blank" rel="noopener" aria-label="X">X</a></div>
+        <div class="mini"><div><b class="orange">3+</b><span>Years Experience</span></div><div><b class="orange">8+</b><span>Design Projects</span></div><div><b class="orange">100%</b><span>Creativity</span></div><div><b class="orange">∞</b><span>Always Learning</span></div></div>
+        <h4 class="orange">My Skills <a class="orange" href="skills.html">View All Skills</a></h4>
+        <div class="bars" data-set="des6"></div>
+        <h4>What I'm Into</h4>
+        <div class="into orange"><div><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg>UI/UX Design</div><div><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6 6.5.5-5 4.3 1.6 6.4L12 16.5 6.4 20.2 8 13.8 3 9.5 9.5 9z"/></svg>Branding</div><div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M10 8l6 4-6 4z"/></svg>Motion Design</div><div><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>Creative Ideas</div></div>
+        <div class="now"><span>Currently Working On</span><b>Modern UI/UX Experiences &amp; Brand Design</b></div>
+      </article>
+    </div>
+  </div>
+  <div class="quote"><div class="bg" style="background-image:url(assets/img/wide-duo.jpg)"></div><div class="in"><div><h2>“Different Paths.<br>Same Destination.”</h2><p>We may have different skills, but our vision is the same: to build something extraordinary.</p></div><div class="script">Two Brothers,<br>One Dream</div></div></div>
+</section>
+<section class="page on continuous-chapter" id="p-projects">
+  <div class="pj-hero">
+    <div class="bg" style="background-image:url(assets/img/wide-duo.jpg)"></div>
+    <div class="wrap">
+      <span class="pill">OUR WORK</span>
+      <h1><span class="silver ttl" style="--i:1">Projects</span><br><span class="fire ttl" style="--i:3">that speak.</span></h1>
+      <p style="font-size:1.1rem;margin:16px 0 8px">Ideas into real products. Designs into experiences.</p>
+      <p style="max-width:400px;color:#c3cfe0;margin:0">We build modern, high-performance websites, web apps, and digital solutions that help brands grow, stand out, and create real impact.</p>
+      <div class="nums"><div><b>12+</b><span>Projects Completed</span></div><div><b>8+</b><span>Happy Clients</span></div><div><b>100%</b><span>Client Satisfaction</span></div></div>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:20px">
+    <div class="filters">
+      <div class="chips" id="chips"></div>
+      <div class="view"><button class="on" data-v="grid">▦ Grid</button><button data-v="list">☰ List</button></div>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+    <div class="feat">
+      <div><span class="pill" style="border-color:#7a3a1a;color:var(--orange2)">FEATURED PROJECT</span><h2>Red Apple Digital Agency</h2><p>A complete digital presence solution for modern businesses. Website, branding, and UI/UX, all in one place.</p><a class="btn sm" href="contact.html">View Full Case Study <svg width="16" height="16"><use href="#arr"/></svg></a></div>
+      <div class="lap"><b>RED APPLE<br>DIGITAL AGENCY</b></div>
+      <ul><li>Modern Design</li><li>Fast Performance</li><li>SEO Optimized</li><li>Full Ownership</li></ul>
+    </div>
+    <div class="have"><div><span>Have a project in mind?</span><small>Let's turn your idea into something amazing.</small></div><a class="btn" href="contact.html">Get in Touch <svg width="18" height="18"><use href="#arr"/></svg></a></div>
+  </div>
+</section>
+<section class="page on continuous-chapter" id="p-skills">
+  <div class="hero2"><div class="wrap h2g">
+    <div class="copy">
+      <p class="eyebrow rise">Our skills</p>
+      <h1><span class="silver ttl" style="--i:1">Skills that</span><br><span class="fire ttl" style="--i:3">build dreams.</span></h1>
+      <p class="t rise" style="--i:5">Two minds. One vision. Different strengths.</p>
+      <p class="t2 rise" style="--i:6">We combine technical expertise, creative thinking, and real-world experience to turn ideas into powerful digital solutions.</p>
+      <a class="btn sm rise" style="--i:7" href="projects.html">Explore Our Projects <svg width="16" height="16"><use href="#arr"/></svg></a>
+    </div>
+    <div class="tilt3d" data-tilt><div class="tt"><div class="stage">
+      <img src="assets/img/hero-duo.jpg" alt="Syed Luqman and Fawad Khan">
+      <div class="tag l" style="font-size:.9rem">Syed Luqman<small>Web Developer</small></div>
+      <div class="tag r" style="font-size:.9rem">Fawad Khan<small>UI/UX Designer</small></div>
+    </div></div></div>
+  </div></div>
+  <div class="wrap" style="padding-top:20px">
+    <div class="sk-grid">
+      <article class="sk-card b">
+        <h2><span class="silver">Syed</span> <span class="blue">Luqman</span></h2><div class="blue" style="font-size:1.1rem">Web Developer</div>
+        <p class="d">I turn ideas into functional, fast, and modern web applications. From frontend to backend, I build digital experiences that make an impact.</p>
+        <div class="box"><div class="bars" data-set="dev10" data-ic="1"></div></div>
+      </article>
+      <article class="sk-card o">
+        <h2><span class="silver">Fawad</span> <span class="orange">Khan</span></h2><div class="orange" style="font-size:1.1rem">UI/UX Designer</div>
+        <p class="d">I design clean, modern, and user-friendly interfaces that turn ideas into real experiences. Focused on visuals, interaction, and smooth user journeys.</p>
+        <div class="box"><div class="bars" data-set="des10" data-ic="1"></div></div>
+      </article>
+    </div>
+    <div class="tools">
+      <div><h3 style="font-size:1rem;letter-spacing:.06em">Tools &amp; Technologies</h3><p style="color:var(--mute);font-size:.88rem;margin:8px 0 16px">We work with the best tools to build faster, smarter, and better.</p><a class="btn sm" href="projects.html">Our Tech Stack <svg width="16" height="16"><use href="#arr"/></svg></a></div>
+      <div class="grid" id="toolgrid"></div>
+    </div>
+  </div>
+  <div class="sk-end"><div class="bg" style="background-image:url(assets/img/wide-duo.jpg)"></div><div class="in">
+    <h2><span class="silver">Two Brothers.</span><br><span class="fire">One Vision.</span><br><small style="display:block;font:300 1.05rem var(--body);text-transform:none;margin-top:14px;color:#c3cfe0">Different skills. Same mindset.<br>Build. Create. Grow.</small></h2>
+    <div class="stats"><div><b>2+</b><span>Years Experience</span></div><div><b>50+</b><span>Projects Completed</span></div><div><b>100%</b><span>Dedication</span></div><div><b>∞</b><span>Growth Mindset</span></div></div>
+  </div></div>
+</section>
+<section class="page on continuous-chapter" id="p-contact">
+  <div class="hero2"><div class="wrap h2g">
+    <div class="copy">
+      <p class="eyebrow rise">Contact us</p>
+      <h1><span class="silver ttl" style="--i:1">Let's build</span><br><span class="fire ttl" style="--i:3">something</span><br><span class="fire ttl" style="--i:4">great.</span></h1>
+      <p class="pp rise" style="--i:6">Have a project in mind? A business idea? Or just want to say hello? We'd love to hear from you.</p>
+      <div class="script rise" style="--i:7">Drop us a message,<br>let's make it happen!</div>
+    </div>
+    <div class="tilt3d" data-tilt><div class="tt"><div class="stage wide">
+      <img src="assets/img/banner-duo.jpg" alt="Syed Luqman and Fawad Khan">
+    </div></div></div>
+  </div></div>
+  <div class="wrap" style="padding-top:10px">
+    <div class="ct-grid">
+      <div class="glass">
+        <p class="eyebrow" style="margin-bottom:10px">Get in touch</p>
+        <p style="color:#c3cfe0;font-size:.92rem;margin:0 0 8px">We're always open to new opportunities, collaborations and interesting conversations.</p>
+        <div class="info"><div class="i"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><b>Email Us</b><span>twobrothers.dev@gmail.com</span><span>syedluqman.dev@gmail.com</span></div></div>
+        <div class="info"><div class="i"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8z"/></svg></div><div><b>WhatsApp</b><span>+92 312 3456789</span><span>(Both Brothers)</span></div></div>
+        <div class="info"><div class="i"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b>Our Location</b><span>Mardan, Khyber Pakhtunkhwa</span><span>Pakistan</span></div></div>
+        <p class="eyebrow" style="margin:26px 0 12px">Follow us</p>
+        <div class="soc" style="margin:0"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://x.com" target="_blank" rel="noopener" aria-label="X">X</a><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">GH</a><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">YT</a></div>
+        <p style="font-size:.78rem;color:var(--mute);margin:12px 0 0">Stay connected for updates, projects and more.</p>
+      </div>
+      <form class="glass glow" id="form" novalidate>
+        <h3 style="font-size:1.25rem;letter-spacing:.04em;margin-bottom:4px">Send us a message</h3>
+        <p style="font-size:.82rem;color:var(--mute);margin:0 0 18px">Fill out the form and we'll get back to you as soon as possible.</p>
+        <div class="fld">
+          <div><label class="l" for="fn">Your Name *</label><input id="fn" required autocomplete="name"></div>
+          <div><label class="l" for="fe">Your Email *</label><input id="fe" type="email" required autocomplete="email"></div>
+        </div>
+        <label class="l" for="fs">Subject *</label>
+        <select id="fs" required><option value="">Choose a subject</option><option>New project</option><option>Website or app design</option><option>Collaboration</option><option>Just saying hello</option></select>
+        <label class="l" for="fm">Your Message *</label>
+        <textarea id="fm" required placeholder="Tell us about your project, idea or just say hello..."></textarea>
+        <button class="btn send" type="submit">Send Message <svg width="18" height="18"><use href="#arr"/></svg></button>
+        <div class="ok" id="ok" hidden></div>
+        <p class="safe"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-1px;opacity:.75" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.3-7 9-4-1.7-7-4.8-7-9V6z"/></svg> Your information is safe with us.</p>
+      </form>
+    </div>
+    <div class="glass world">
+      <svg class="map" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="#1B2A3A"><path d="M40 40l40-10 30 15 10 30-20 25-30 5-25-20z"/><path d="M95 120l25 8 10 30-15 30-20-25z"/><path d="M185 40l45-8 30 12 40 5 40 25-15 25-40 5-25 30-30-10-20-30-25-5z"/><path d="M200 105l35 5 25 35-10 30-35-10-15-30z"/><path d="M330 150l30 5 10 20-30 5z"/></g><path d="M262 82 Q 220 30 120 60" stroke="#8CAFD0" fill="none" stroke-width="1.2" opacity=".8"/><circle cx="262" cy="82" r="4" fill="#8CAFD0"/></svg>
+      <div><p class="eyebrow" style="margin-bottom:8px">Where we work</p><h2><span class="silver">Local roots.</span><br><span class="fire">Global reach.</span></h2><p>Based in Mardan, Pakistan, but we work with clients worldwide. Distance is not a limit, ideas are.</p>
+        <a class="btn sm" href="https://www.google.com/maps/search/Mardan,+Khyber+Pakhtunkhwa,+Pakistan" target="_blank" rel="noopener">View on Google Maps <svg width="16" height="16"><use href="#arr"/></svg></a></div>
+      <div class="where"><div><i>⌂</i><span><b style="font-weight:500">Mardan, Pakistan</b><br><small style="color:var(--mute)">(Our Base)</small></span></div><div><i>◍</i><span><b style="font-weight:500">Worldwide</b><br><small style="color:var(--mute)">(Remote Work)</small></span></div><div class="script blue" style="display:block;border:0;background:none;font-size:1.5rem;transform:rotate(-5deg);text-align:right">Global Vision,<br>Local Hustle</div></div>
+    </div>
+    <div class="duo-ct">
+      <div class="bg" style="background-image:url(assets/img/wide-duo.jpg)"></div>
+      <div><div class="script">“Different Skills.<br>Same Vision.”</div><p>Two brothers. One journey.<br>Building the future, together.</p></div>
+      <div class="pair">
+        <div class="pb1"><img src="assets/img/syed.jpg" alt="Syed Luqman"><b>Syed Luqman</b><small>Web Developer</small><a class="btn sm b" href="contact.html" data-fill="Syed">Contact Him <svg width="14" height="14"><use href="#arr"/></svg></a></div>
+        <div class="pb2"><img src="assets/img/fawad.jpg" alt="Fawad Khan"><b>Fawad Khan</b><small>UI/UX Designer</small><a class="btn sm o" href="contact.html" data-fill="Fawad">Contact Him <svg width="14" height="14"><use href="#arr"/></svg></a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -579,6 +780,27 @@
   window.addEventListener('resize', function () { clearTimeout(window.__moR); window.__moR = setTimeout(function () { ScrollTrigger.refresh(); }, 250); });
 })();
 
+</script>
+
+<script>
+(function(){
+  var chapters=[].slice.call(document.querySelectorAll('.continuous-chapter'));
+  var nav=[].slice.call(document.querySelectorAll('#links a[href^="#p-"]'));
+  nav.forEach(function(a){a.addEventListener('click',function(e){
+    var target=document.querySelector(a.getAttribute('href')); if(!target)return;
+    e.preventDefault(); document.getElementById('links').classList.remove('open');
+    target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    history.replaceState(null,'',a.getAttribute('href'));
+  })});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(!en.isIntersecting)return;
+        nav.forEach(function(a){var on=a.getAttribute('href')==='#'+en.target.id;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+      });
+    },{rootMargin:'-28% 0px -62% 0px',threshold:0});
+    chapters.forEach(function(s){io.observe(s)});
+  }
+})();
 </script>
 </body>
 </html>
