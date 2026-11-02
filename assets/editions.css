@@ -1,0 +1,346 @@
+/* ==================================================================
+   2BRO'S — "EDITIONS" TEMPLATE LAYER          (2026-11 · v1)
+   Editorial / full-bleed chapter template in the spirit of the
+   Shopify Editions reference: cinematic image chapters, one giant
+   display line, italic-serif subline, hairline frames, roman-numeral
+   index rail, slim top bar.
+
+   Content, wording, logo, brand name and all image files are untouched.
+   Loaded after style.css + design-system.css.
+   ================================================================== */
+
+/* ------------------------------------------------ 0. fonts */
+@font-face{
+  font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/instrument-serif-normal-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
+  src:url('fonts/instrument-serif-italic-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root{
+  --ed-serif:'Instrument Serif','Sora',Georgia,serif;
+  --ed-hair:rgba(232,240,248,.22);
+  --ed-hair-soft:rgba(232,240,248,.12);
+  --ed-ink:#F7FAFD;
+  --ed-mute:rgba(238,244,250,.78);
+  --ed-pad:clamp(18px,5.2vw,84px);
+}
+
+/* ------------------------------------------------ 1. type: editorial scale */
+h1,.display{
+  font-family:var(--font-display);
+  font-weight:800;
+  letter-spacing:-.045em;
+  line-height:.92;
+  color:var(--ed-ink);
+}
+h1{font-size:clamp(2.6rem,9.4vw,7.4rem)}
+h2{font-weight:700;letter-spacing:-.032em;line-height:1.02;font-size:clamp(1.6rem,4.4vw,3.1rem)}
+h3{letter-spacing:-.02em}
+h1 .silver,h1 .fire,h2 .silver,h2 .fire{
+  background:none!important;-webkit-background-clip:border-box;background-clip:border-box;
+  -webkit-text-fill-color:currentColor;color:var(--ed-ink);
+}
+h1 .fire,h2 .fire{color:#D7E3EF}
+/* italic serif sublines — the Editions signature */
+.hero-copy .sub,.duo .sub,.pg-hero .lead,.pg-hero p.t,.hero2 .copy .t,.hero2 .copy .t2,
+.pj-hero p,.hero2 .copy .pp,.pp,.ct-hero .pp,.ct-hero p{
+  font-family:var(--ed-serif)!important;
+  font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;
+  font-size:clamp(1.02rem,1.9vw,1.55rem);line-height:1.4;
+  color:var(--ed-mute);
+}
+/* the little kicker above the title */
+.eyebrow{
+  font:500 .66rem var(--font-label);letter-spacing:.36em;text-transform:uppercase;
+  color:rgba(242,248,253,.72);justify-content:center;gap:16px;margin-bottom:22px;
+}
+.eyebrow::before,.eyebrow::after{width:34px;height:1px;background:rgba(242,248,253,.30);opacity:1}
+.pill{
+  font:500 .62rem var(--font-label);letter-spacing:.34em;text-transform:uppercase;
+  border:1px solid var(--ed-hair);background:rgba(6,10,16,.28)!important;
+  color:rgba(242,248,253,.82);padding:7px 16px;border-radius:2px;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+
+/* ------------------------------------------------ 2. slim top bar */
+nav{
+  padding:11px clamp(14px,4vw,44px)!important;
+  background:linear-gradient(180deg,rgba(4,7,11,.72),rgba(4,7,11,.42))!important;
+  border-bottom:1px solid var(--ed-hair-soft)!important;
+  backdrop-filter:blur(22px) saturate(140%)!important;-webkit-backdrop-filter:blur(22px) saturate(140%)!important;
+}
+.nav-in{gap:26px}
+.logo img.mark{height:30px!important;filter:none!important;animation:none!important}
+.logo img.wordmark{height:24px!important}
+.links{gap:26px}
+.links a{font-size:.82rem;letter-spacing:.01em;color:rgba(238,244,250,.66)}
+.links a.on{color:var(--ed-ink)}
+.links a.on::after{width:4px;height:4px;bottom:-8px;background:var(--ed-ink);box-shadow:0 0 8px rgba(255,255,255,.5)}
+.nav-cta,.btn.sm.nav-cta{
+  padding:8px 18px!important;border-radius:999px!important;
+  font-size:.8rem!important;font-weight:600!important;
+  background:rgba(255,255,255,.06)!important;border:1px solid var(--ed-hair)!important;color:var(--ed-ink)!important;
+}
+
+/* ------------------------------------------------ 3. chapters: full-bleed image + centred type */
+.hero,.pg-hero,.duo,.pj-hero,.hero2,.sk-hero,.ct-hero{
+  position:relative;isolation:isolate;
+  min-height:min(100svh,940px);
+  padding:clamp(96px,13vh,150px) var(--ed-pad) clamp(64px,9vh,110px)!important;
+  display:flex!important;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  border-bottom:1px solid var(--ed-hair-soft);
+}
+/* the chapter photo goes full-bleed behind everything */
+.hero .tilt3d,.duo .tilt3d,.hero2 .tilt3d,.sk-hero .tilt3d,.ct-hero .tilt3d{
+  position:absolute!important;inset:0!important;z-index:-2;
+  margin:0!important;transform:none!important;perspective:none!important;
+}
+.hero .tilt3d .tt,.duo .tilt3d .tt,.hero2 .tilt3d .tt{height:100%;transform:none!important}
+.hero .stage,.duo .stage,.hero2 .stage,.sk-hero .stage,.ct-hero .stage{
+  position:absolute!important;inset:0!important;height:100%!important;width:100%!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;
+  overflow:hidden!important;
+  -webkit-mask-image:none!important;mask-image:none!important;
+}
+.hero .stage img,.duo .stage img,.hero2 .stage img,.sk-hero .stage img,.ct-hero .stage img{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:52% 24%!important;
+  -webkit-mask-image:none!important;mask-image:none!important;
+  transform:scale(1.02);
+}
+/* cinematic scrim so the type always sits on darkness */
+.hero .stage::after,.duo .stage::after,.hero2 .stage::after,.sk-hero .stage::after,.ct-hero .stage::after{
+  content:"";position:absolute;inset:0;z-index:2;opacity:1!important;mix-blend-mode:normal!important;border-radius:0;
+  background:
+    radial-gradient(120% 90% at 50% 42%,rgba(3,6,10,.30) 0%,rgba(3,6,10,.62) 62%,rgba(3,6,10,.88) 100%),
+    linear-gradient(180deg,rgba(3,6,10,.72) 0%,rgba(3,6,10,.18) 34%,rgba(3,6,10,.30) 62%,rgba(3,6,10,.92) 100%);
+}
+.stage::before{border:0!important;box-shadow:none!important;background:none!important}
+.hero::after,.pg-hero::after,.duo::after,.pj-hero::after,.sk-hero::after,.sk-end::after,.ct-hero::after{
+  background:linear-gradient(180deg,rgba(4,7,11,.55),rgba(4,7,11,.10) 42%,rgba(4,7,11,.82))!important;
+}
+.pg-hero .bg,.pj-hero .bg,.hero2 .bg,.sk-hero .bg,.ct-hero .bg{opacity:.92!important}
+
+/* the hairline frame around the title block */
+.hero-copy,.duo .head,.hero2 .copy,.sk-hero .copy,.ct-hero .copy,
+.pg-hero>.wrap,.pj-hero>.wrap{
+  position:relative!important;z-index:3;
+  max-width:min(760px,92vw)!important;
+  margin:0 auto!important;
+  padding:clamp(26px,3.4vw,52px) clamp(22px,3.6vw,56px)!important;
+  border:1px solid var(--ed-hair);
+  background:linear-gradient(180deg,rgba(6,10,16,.28),rgba(6,10,16,.14));
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  text-align:center;
+}
+/* corner ticks */
+.hero-copy::before,.duo .head::before,.hero2 .copy::before,.sk-hero .copy::before,
+.ct-hero .copy::before,.pg-hero>.wrap::before,.pj-hero>.wrap::before{
+  content:"";position:absolute;inset:-1px;pointer-events:none;
+  background:
+    linear-gradient(var(--ed-ink),var(--ed-ink)) left top/9px 1px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) left top/1px 9px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) right top/9px 1px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) right top/1px 9px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) left bottom/9px 1px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) left bottom/1px 9px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) right bottom/9px 1px no-repeat,
+    linear-gradient(var(--ed-ink),var(--ed-ink)) right bottom/1px 9px no-repeat;
+  opacity:.55;
+}
+.hero-copy h1,.duo .head h1,.hero2 .copy h1,.pg-hero h1,.pj-hero h1{max-width:14ch;margin-inline:auto}
+.hero-copy .sub,.duo .sub,.pg-hero .lead,.pg-hero p.t,.hero2 .copy .t,.hero2 .copy .t2{max-width:38ch;margin-inline:auto}
+.pg-hero p.t,.hero2 .copy .t2{margin-top:12px}
+.hero-copy .btn,.duo .head .btn,.hero2 .copy .btn,.pg-hero .btn,.pj-hero .btn{margin-top:clamp(20px,3vw,32px)}
+
+/* the name tags keep working on the full-bleed photo */
+.stage .tag{z-index:4}
+.hero .stage .tag,.duo .stage .tag,.hero2 .stage .tag,.sk-hero .stage .tag{position:absolute!important}
+
+/* pull the hero content of the two-column chapters out of the split grid */
+.hero2 .wrap.h2g,.sk-hero .in,.ct-hero .in{display:block!important;max-width:none!important;margin:0!important}
+
+/* chapters that are text-only stay centred and quiet */
+.hero-copy,.hero2 .copy{background:linear-gradient(180deg,rgba(6,10,16,.34),rgba(6,10,16,.16))}
+
+/* ------------------------------------------------ 4. buttons: platinum pill */
+.btn{
+  border-radius:999px!important;border:1px solid var(--ed-hair)!important;
+  background:rgba(255,255,255,.07)!important;color:var(--ed-ink)!important;
+  font-weight:600!important;font-size:.86rem!important;letter-spacing:.01em;
+  padding:12px 26px!important;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16);
+}
+.btn:hover{background:rgba(255,255,255,.14)!important;border-color:rgba(255,255,255,.42)!important}
+.btn.rise,.btn.solid,.btn.send,.cta-band .btn,.have .btn,.f-in .btn,.btn.sm.rise{
+  background:var(--ed-ink)!important;border-color:var(--ed-ink)!important;
+  color:#05070B!important;box-shadow:0 18px 40px -26px rgba(255,255,255,.5)!important;
+}
+.btn.rise:hover,.btn.solid:hover,.btn.send:hover,.cta-band .btn:hover,.have .btn:hover,.f-in .btn:hover{
+  background:#fff!important;transform:translateY(-1px);
+}
+.btn svg{stroke:currentColor}
+
+/* ------------------------------------------------ 5. section rhythm below the fold */
+.sect{padding-block:clamp(58px,8vw,120px)!important}
+.sect>.wrap,section.sect{position:relative}
+.sk-grid,.pgrid,.values,.profiles,.ct-grid{gap:clamp(16px,2vw,26px)!important}
+.cta-band{
+  border-block:1px solid var(--ed-hair-soft)!important;
+  background:linear-gradient(90deg,rgba(6,10,16,.9),rgba(10,16,24,.86))!important;
+}
+.cta-band h2{letter-spacing:-.03em;font-size:clamp(1.35rem,3vw,2.1rem)}
+.quote .in,.cta-band .in{border:1px solid var(--ed-hair-soft);border-radius:0!important}
+.quote h2,.cta-band h2 em,.cta-band h2 b{color:var(--ed-ink)}
+.quote p,.cta-band p{font-family:var(--ed-serif);font-style:italic;color:var(--ed-mute)}
+.quote .script,.duo-ct .script,.foot-tags .script{
+  font-family:var(--ed-serif)!important;font-style:italic;font-weight:400!important;
+  letter-spacing:0!important;font-size:clamp(1.15rem,2vw,1.6rem);
+}
+/* panel language: hairline editorial instead of heavy glass */
+.pcard,.sk-card,.tools,.feat,.glass,.poster,.proj,.duo-ct,.have,.filters,.stats div,
+.mini,.into div,.now,.tl,.world,.values>div,.cta-band .in,.quote .in{
+  border-radius:2px!important;
+  border-color:var(--ed-hair-soft)!important;
+  background:linear-gradient(180deg,rgba(8,13,20,.62),rgba(6,10,15,.48))!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(10px) saturate(120%);backdrop-filter:blur(10px) saturate(120%);
+}
+.pcard:hover,.sk-card:hover,.proj:hover,.poster:hover,.glass:hover,.tools:hover,.feat:hover{
+  border-color:rgba(232,240,248,.34)!important;
+  background:linear-gradient(180deg,rgba(11,17,25,.72),rgba(7,11,17,.56))!important;
+}
+.mini,.into div,.now,.tl,.sk-card .box{border-radius:2px!important;background:rgba(255,255,255,.035)!important}
+.pcard .face{border-radius:2px!important}
+.pcard,.proj{border-radius:2px!important;overflow:hidden}
+.thumb .scr{border-radius:2px 2px 0 0!important}
+.marq{border-block:1px solid var(--ed-hair-soft)!important}
+.marq .track{font-weight:800;letter-spacing:-.03em;-webkit-text-stroke:0;color:rgba(238,244,250,.92)}
+.marq .track span:nth-child(3n){color:rgba(140,175,208,.75);-webkit-text-stroke-color:transparent}
+.marq .track span:not(:nth-child(3n)){-webkit-text-stroke:0}
+
+/* numerals / counters next to section titles */
+.pcard .num,.nums b,.stats b{font-family:var(--font-label);font-weight:500;letter-spacing:.06em}
+.nums div{border-right:1px solid var(--ed-hair-soft)!important}
+
+/* ------------------------------------------------ 6. chapter index rail */
+.ed-rail{
+  position:fixed;left:clamp(12px,2vw,28px);top:50%;transform:translateY(-50%);
+  z-index:45;display:none;flex-direction:column;gap:2px;
+  font-family:var(--font-label);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  pointer-events:auto;
+}
+.ed-rail a{
+  display:grid;grid-template-columns:26px 1fr;align-items:center;gap:10px;
+  padding:7px 8px;color:rgba(238,244,250,.34);border-left:1px solid rgba(238,244,250,.14);
+  transition:color .3s,border-color .3s,background .3s;
+}
+.ed-rail a b{font-weight:400;font-size:.6rem;color:rgba(238,244,250,.30);font-variant-numeric:tabular-nums}
+.ed-rail a:hover{color:rgba(238,244,250,.8)}
+.ed-rail a.on{color:var(--ed-ink);border-left-color:var(--ed-ink);background:linear-gradient(90deg,rgba(255,255,255,.08),transparent)}
+.ed-rail a.on b{color:rgba(238,244,250,.75)}
+@media(min-width:1180px){.continuous-site .ed-rail{display:flex}}
+
+/* ------------------------------------------------ 7. reveal motion (JS-enhanced only) */
+.ed-ready .hero-copy,.ed-ready .duo .head,.ed-ready .hero2 .copy,.ed-ready .pg-hero>.wrap,
+.ed-ready .pj-hero>.wrap,.ed-ready .sk-hero .copy,.ed-ready .ct-hero .copy{
+  opacity:0;transform:translateY(26px) scale(.995);
+  transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);
+}
+.ed-ready .is-in.hero-copy,.ed-ready .duo .head.is-in,.ed-ready .hero2 .copy.is-in,
+.ed-ready .pg-hero>.wrap.is-in,.ed-ready .pj-hero>.wrap.is-in,
+.ed-ready .sk-hero .copy.is-in,.ed-ready .ct-hero .copy.is-in{opacity:1;transform:none}
+.ed-ready .ed-rail{opacity:0;transition:opacity 1s .4s}
+.ed-ready .ed-rail.on{opacity:1}
+.ed-chapter-rule{
+  position:absolute;left:50%;bottom:0;width:min(92vw,1180px);height:1px;transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,var(--ed-hair),transparent);
+  transform-origin:50% 50%;opacity:.9;
+}
+
+/* ------------------------------------------------ 8. mobile */
+@media(max-width:820px){
+  h1{font-size:clamp(2.15rem,10.6vw,3.4rem);line-height:.98}
+  .hero,.pg-hero,.duo,.pj-hero,.hero2,.sk-hero,.ct-hero{
+    min-height:92svh;padding:clamp(88px,12vh,120px) 16px clamp(48px,7vh,70px)!important;
+  }
+  .hero-copy,.duo .head,.hero2 .copy,.sk-hero .copy,.ct-hero .copy,.pg-hero>.wrap,.pj-hero>.wrap{
+    padding:22px 18px!important;max-width:100%!important;
+  }
+  .hero-copy h1,.pg-hero h1,.pj-hero h1,.duo .head h1,.hero2 .copy h1{max-width:100%}
+  .eyebrow{letter-spacing:.24em;font-size:.6rem;gap:10px}
+  .eyebrow::before,.eyebrow::after{width:20px}
+  .hero .stage img,.duo .stage img,.hero2 .stage img{object-position:56% 22%!important}
+  .ed-rail{display:none!important}
+  .marq .track{font-size:clamp(1.15rem,6vw,1.7rem)}
+}
+@media(prefers-reduced-motion:reduce){
+  .ed-ready .hero-copy,.ed-ready .duo .head,.ed-ready .hero2 .copy,.ed-ready .pg-hero>.wrap,
+  .ed-ready .pj-hero>.wrap,.ed-ready .sk-hero .copy,.ed-ready .ct-hero .copy{opacity:1!important;transform:none!important}
+}
+
+/* ------------------------------------------------ 9. scale + frame calibration */
+h1{font-size:clamp(2.35rem,7.1vw,5.7rem)!important;line-height:.95;letter-spacing:-.04em;text-wrap:balance}
+.hero-copy,.duo .head,.hero2 .copy,.sk-hero .copy,.ct-hero .copy,
+.pg-hero>.wrap,.pj-hero>.wrap{max-width:min(880px,92vw)!important}
+.hero-copy h1,.duo .head h1,.hero2 .copy h1,.pg-hero h1,.pj-hero h1,.sk-hero h1,.ct-hero h1{
+  max-width:none!important;margin-inline:auto;
+}
+@media(max-width:820px){
+  h1{font-size:clamp(2rem,8.6vw,2.9rem)!important}
+}
+
+/* ------------------------------------------------ 10. index rail restraint */
+.ed-rail{transition:opacity .5s cubic-bezier(.2,.8,.2,1),transform .5s}
+.ed-ready .ed-rail{opacity:0;pointer-events:none}
+.ed-ready .ed-rail.on{opacity:1;pointer-events:auto}
+@media(max-width:1560px){
+  .ed-rail{left:clamp(8px,1.2vw,18px)}
+  .ed-rail a{grid-template-columns:18px 1fr;gap:6px;padding:6px 5px;background:none}
+  .ed-rail a span{display:none}
+  .ed-rail a.on{background:linear-gradient(90deg,rgba(255,255,255,.10),transparent)}
+}
+
+/* ------------------------------------------------ 11. chapter copy layout fixes */
+.hero2 .copy,.sk-hero .copy,.ct-hero .copy{
+  display:block!important;text-align:center;max-width:min(880px,92vw);margin-inline:auto;
+}
+.hero2 .copy .t,.hero2 .copy .t2,.hero2 .copy p.pp,.hero2 .copy .script{
+  max-width:38ch;margin-inline:auto;
+}
+.hero2 .copy .script,.ct-hero .copy .script,.pg-hero .script,.hero-copy .script{
+  font-family:var(--ed-serif)!important;font-style:italic;font-weight:400!important;
+  font-size:clamp(1rem,1.7vw,1.35rem)!important;letter-spacing:0!important;
+  color:rgba(238,244,250,.7)!important;transform:none!important;display:block!important;
+  margin-top:clamp(14px,2vw,22px)!important;line-height:1.4;
+}
+.hero2 .copy .btn{margin-top:clamp(18px,2.4vw,26px)}
+/* numerals on the index rail: a touch more presence */
+.ed-rail a{color:rgba(238,244,250,.42)}
+.ed-rail a b{color:rgba(238,244,250,.4)}
+.ed-rail a.on{color:var(--ed-ink)}
+.ed-rail a.on b{color:rgba(238,244,250,.85)}
+
+/* ------------------------------------------------ 12. mobile composition */
+.duo .head p:not(.sub):not(.eyebrow),.hero-copy p:not(.sub){
+  font-family:var(--font-body);font-size:.95rem;line-height:1.65;
+  color:rgba(226,235,244,.72);max-width:44ch;margin-inline:auto;
+}
+@media(max-width:820px){
+  .hero .stage .tag,.duo .stage .tag,.hero2 .stage .tag,.sk-hero .stage .tag{
+    font-size:clamp(.68rem,2.9vw,.82rem)!important;padding:6px 9px!important;max-width:44%!important;
+  }
+  .stage .tag.l{top:13%!important;left:3%!important}
+  .stage .tag.r{top:19%!important;right:3%!important}
+  .stage .tag small{font-size:.5rem!important}
+  .hero .stage img,.duo .stage img,.hero2 .stage img,.sk-hero .stage img{object-position:50% 28%!important}
+  .hero-copy,.hero2 .copy,.duo .head{padding:20px 16px!important}
+  .hero-copy .btn,.hero2 .copy .btn{width:100%;justify-content:center}
+}
